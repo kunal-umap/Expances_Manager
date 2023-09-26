@@ -8,9 +8,16 @@ A new Flutter project.
 
 Run the following commands from your terminal:
 
-1) `https://github.com/kunal-umap/Expances_Manager.git` to clone this repository 
-
-2) `flutter pub get` in the project root directory to install all the required dependencies.
+1) **Fork Repositories.**
+ 
+2) **Clone to to your local system by using following comand.**
+   ```
+   git clone https://github.com/<your_user_name>/Expances_Manager.git
+   ```
+3) In the project root directory to install all the required dependencies.
+   ```
+   flutter pub get
+   ``` 
 
 This project is a starting point for a Flutter application.
 
