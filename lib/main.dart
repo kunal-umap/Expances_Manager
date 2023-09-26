@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-void main(){
-  runApp( const WeatherApp());
+void main() {
+  runApp(const WeatherApp());
 }
 
 class WeatherApp extends StatelessWidget {
@@ -10,7 +10,24 @@ class WeatherApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark(useMaterial3: true),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 32,
+          ),
+          titleMedium: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
+          titleSmall: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
+        ),
+        useMaterial3: true,
+      ),
     );
   }
 }
