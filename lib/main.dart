@@ -1,3 +1,4 @@
+import 'package:expances_management/pages/Home/Home_Wedgets/Transection/transection.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,37 +11,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark(useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: "Rubik",
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
-        textTheme: const TextTheme(
-          titleLarge: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 32,
-          ),
-          titleMedium: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 22,
-          ),
-          titleSmall: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
+      home: const Scaffold(
+        body: Column(
+          children: [],
         ),
-        appBarTheme: const AppBarTheme(
-            color: Colors.black,
-            titleTextStyle: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-            )),
-        useMaterial3: true,
       ),
     );
   }
 }
-
-
 
 /*
 ----------------------------
