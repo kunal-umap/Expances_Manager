@@ -10,15 +10,16 @@ class Transection extends StatelessWidget {
   SafeArea build(BuildContext context) {
     return SafeArea(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
             padding: EdgeInsets.fromLTRB(20, 15, 0, 10),
-            child: Text(
-              "Latest transection",
-              style: TextStyle(
-                fontSize: 22,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Latest transection",
+                style: TextStyle(
+                  fontSize: 22,
+                ),
               ),
             ),
           ),
@@ -31,6 +32,7 @@ class Transection extends StatelessWidget {
                 time: "Today, 03:07 am",
                 icon: Icons.wallet,
                 color: Colors.green,
+                price: '₹100',
               ),
             ),
           ),
@@ -43,6 +45,7 @@ class Transection extends StatelessWidget {
                 time: "Today, 03:01 am",
                 icon: Icons.price_change,
                 color: Colors.blue,
+                price: '₹2000',
               ),
             ),
           ),
@@ -55,6 +58,7 @@ class Transection extends StatelessWidget {
                 time: 'Today, 02:59 am',
                 icon: Icons.directions_car_filled_rounded,
                 color: Colors.grey,
+                price: '₹300',
               ),
             ),
           ),
@@ -65,14 +69,17 @@ class Transection extends StatelessWidget {
               width: double.infinity,
               height: 70,
               color: const Color.fromARGB(255, 24, 23, 23),
-              child: const Padding(
-                padding: EdgeInsets.all(20),
-                child: Text(
-                  "VIEW TRANSACTIONS",
-                  textAlign: TextAlign.start,
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Color.fromARGB(255, 160, 25, 184),
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: GestureDetector(
+                  onTap: () {},
+                  child: const Text(
+                    "VIEW TRANSACTIONS",
+                    textAlign: TextAlign.start,
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 160, 25, 184),
+                    ),
                   ),
                 ),
               ),
