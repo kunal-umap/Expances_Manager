@@ -1,3 +1,6 @@
+import 'package:expances_management/pages/Home/Home_Wedgets/TopBar/title.dart';
+import 'package:expances_management/pages/Home/Home_Wedgets/TopBar/topbar_menu.dart';
+import 'package:expances_management/pages/Home/Home_Wedgets/Transection/transection.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,9 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(
-        body: Column(
-          children: [],
+      home: Scaffold(
+        appBar: homeTopBar(),
+        drawer: topBarMenu(),
+        body: const Column(
+          children: [Transection()],
         ),
       ),
     );
