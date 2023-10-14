@@ -7,12 +7,14 @@ class Main_page extends StatefulWidget {
   String time;
   IconData icon;
   Color color;
+  String price;
   Main_page({
     super.key,
     required this.label,
     required this.time,
     required this.icon,
     required this.color,
+    required this.price,
   });
 
   @override
@@ -52,6 +54,14 @@ class _Main_pageState extends State<Main_page> {
                 ),
               ),
             ],
+          ),
+          const Spacer(),
+          Text(
+            widget.price,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ],
       ),
