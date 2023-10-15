@@ -54,7 +54,7 @@ class _LineChartGraphState extends State<LineChartGraph> {
               });
             },
             child: Text(
-              'avg',
+              'Avg',
               style: TextStyle(
                 fontSize: 12,
                 color: showAvg ? Colors.white.withOpacity(0.5) : Colors.white,
@@ -132,7 +132,7 @@ class _LineChartGraphState extends State<LineChartGraph> {
         getDrawingVerticalLine: (value) {
           return const FlLine(
             color: Colors.lightBlueAccent,
-            strokeWidth: 0.5,
+            strokeWidth: .5,
           );
         },
       ),
@@ -276,7 +276,7 @@ class _LineChartGraphState extends State<LineChartGraph> {
                   .lerp(0.2)!,
             ],
           ),
-          barWidth: 5,
+          barWidth: 3,
           isStrokeCapRound: true,
           dotData: const FlDotData(
             show: false,
