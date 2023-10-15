@@ -26,44 +26,50 @@ class _Main_pageState extends State<Main_page> {
   @override
   Padding build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 10, 10, 10),
-      child: Row(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(8, 0, 16, 0),
-            child: Icon(
-              widget.icon,
-              color: widget.color,
-              size: 30,
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+      padding: const EdgeInsets.all(2),
+      child: Container(
+        color: const Color.fromARGB(255, 24, 23, 23),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 10, 10, 10),
+          child: Row(
             children: [
-              Text(
-                widget.label,
-                style: const TextStyle(
-                  fontSize: 20,
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 16, 0),
+                child: Icon(
+                  widget.icon,
+                  color: widget.color,
+                  size: 30,
                 ),
               ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.label,
+                    style: const TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                  Text(
+                    widget.time,
+                    style: const TextStyle(
+                      fontSize: 10,
+                    ),
+                  ),
+                ],
+              ),
+              const Spacer(),
               Text(
-                widget.time,
+                widget.price,
                 style: const TextStyle(
-                  fontSize: 10,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
             ],
           ),
-          const Spacer(),
-          Text(
-            widget.price,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
