@@ -16,51 +16,33 @@ class Transection extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "Latest transection",
+                "Latest transaction",
                 style: TextStyle(
                   fontSize: 22,
                 ),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(2),
-            child: Container(
-              color: const Color.fromARGB(255, 24, 23, 23),
-              child: Main_page(
-                label: "Recieved",
-                time: "Today, 03:07 am",
-                icon: Icons.wallet,
-                color: Colors.green,
-                price: '₹100',
-              ),
-            ),
+          Main_page(
+            label: "Recieved",
+            time: "Today, 03:07 am",
+            icon: Icons.wallet,
+            color: Colors.green,
+            price: '₹100',
           ),
-          Padding(
-            padding: const EdgeInsets.all(2),
-            child: Container(
-              color: const Color.fromARGB(255, 24, 23, 23),
-              child: Main_page(
-                label: "Chinmay samosa",
-                time: "Today, 03:01 am",
-                icon: Icons.price_change,
-                color: Colors.blue,
-                price: '₹2000',
-              ),
-            ),
+          Main_page(
+            label: "Chinmay samosa",
+            time: "Today, 03:01 am",
+            icon: Icons.price_change,
+            color: Colors.blue,
+            price: '₹20',
           ),
-          Padding(
-            padding: const EdgeInsets.all(2),
-            child: Container(
-              color: const Color.fromARGB(255, 24, 23, 23),
-              child: Main_page(
-                label: 'Taxi',
-                time: 'Today, 02:59 am',
-                icon: Icons.directions_car_filled_rounded,
-                color: Colors.grey,
-                price: '₹300',
-              ),
-            ),
+          Main_page(
+            label: 'Taxi',
+            time: 'Today, 02:59 am',
+            icon: Icons.directions_car_filled_rounded,
+            color: Colors.grey,
+            price: '₹300',
           ),
           Padding(
             padding: const EdgeInsets.all(2),
