@@ -1,4 +1,4 @@
-import 'package:expances_management/pages/Home/Home_Wedgets/Transection/transection.dart';
+import 'package:expances_management/pages/Home/Home_Wedgets/GraphSection/Graph.dart';
 import 'package:expances_management/pages/Home/Home_Wedgets/TopBar/title.dart';
 import 'package:expances_management/pages/Home/Home_Wedgets/TopBar/topbar_menu.dart';
 import 'package:expances_management/pages/Home/Home_Wedgets/Transection/transection.dart';
@@ -20,7 +20,10 @@ class MyApp extends StatelessWidget {
         appBar: homeTopBar(),
         drawer: topBarMenu(),
         body: const Column(
-          children: [Transection()],
+          children: [
+            Graph(),
+            Transection(),
+          ],
         ),
       ),
     );
