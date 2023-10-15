@@ -1,0 +1,52 @@
+[
+  {
+    "year": 2023,
+    "month": [
+      {
+        "value": "jan",
+        "Expances": [
+          {
+            "Discription": "Samosa",
+            "mode": "Online",
+            "Category": "EAT",
+            "Date": "23-09-2023",
+            "Amount": 50
+          },
+          {
+            "Discription": "Samosa",
+            "mode": "Online",
+            "Category": "EAT",
+            "Date": "23-09-2023",
+            "Amount": 50
+          }
+        ]
+
+      },
+      {
+        "value": "jan",
+        "Expances": [
+          {
+            "Discription": "Samosa",
+            "mode": "Online",
+            "Category": "EAT",
+            "Date": "23-09-2023",
+            "Amount": 50
+          },
+          {
+            "Discription": "Samosa",
+            "mode": "Online",
+            "Category": "EAT",
+            "Date": "23-09-2023",
+            "Amount": 50
+          }
+        ]
+      }
+
+    ]
+
+  },
+  {
+    "year": 2022
+
+  }
+]
