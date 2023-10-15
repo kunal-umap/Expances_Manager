@@ -1,7 +1,4 @@
-import 'package:expances_management/Pages/Home/Home_Wedgets/GraphSection/Graph.dart';
-import 'package:expances_management/pages/Home/Home_Wedgets/TopBar/title.dart';
-import 'package:expances_management/pages/Home/Home_Wedgets/TopBar/topbar_menu.dart';
-import 'package:expances_management/pages/Home/Home_Wedgets/Transection/transection.dart';
+import 'package:expances_management/pages/Home/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,20 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(useMaterial3: true),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: homeTopBar(),
-        drawer: topBarMenu(),
-        bottomNavigationBar: bottomAppBar(),
-        body: const Column(
-          children: [
-            Graph(),
-            Transection(),
-          ],
-        ),
-      ),
+      home: const Home(),
     );
   }
 }
+
+
 
 /*
 ----------------------------
