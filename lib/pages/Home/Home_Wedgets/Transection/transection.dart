@@ -1,3 +1,4 @@
+import 'package:expances_management/pages/Home/Home_Wedgets/GraphSection/Graph.dart';
 import 'package:expances_management/pages/Home/Home_Wedgets/Transection/Main_page.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,7 @@ class Transection extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
+          const Graph(),
           const Padding(
             padding: EdgeInsets.fromLTRB(20, 15, 0, 10),
             child: Align(
