@@ -15,13 +15,11 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: homeTopBar(),
       drawer: topBarMenu(),
-      bottomNavigationBar: bottomAppBar(),
-      body: const Column(
-        children: [
-          Graph(),
-          Transection(),
-        ],
-      ),
+      bottomNavigationBar: const Bottom_bar(),
+      body: const Column(children: [
+        Graph(),
+        Transection(),
+      ]),
     );
   }
 }
