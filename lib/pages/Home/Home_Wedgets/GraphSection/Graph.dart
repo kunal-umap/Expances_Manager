@@ -52,7 +52,12 @@ class Graph extends StatelessWidget {
                 ],
               ),
             ),
-            const LineChartGraph(),
+            ConstrainedBox(
+              constraints:const BoxConstraints(
+                maxHeight: 250
+              ),
+                child: const LineChartGraph()
+            ),
             Padding(
               padding: const EdgeInsets.all(1),
               child: Container(
