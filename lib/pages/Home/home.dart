@@ -32,7 +32,6 @@ class _bottom_barState extends State<Home> {
               currentPage = index;
             });
           },
-          currentIndex: currentPage,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),

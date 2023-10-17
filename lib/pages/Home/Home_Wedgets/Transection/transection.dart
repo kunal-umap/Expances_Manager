@@ -1,11 +1,24 @@
+import 'dart:convert';
 import 'package:expances_management/pages/Home/Home_Wedgets/GraphSection/Graph.dart';
 import 'package:expances_management/pages/Home/Home_Wedgets/Transection/Main_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
-class Transection extends StatelessWidget {
+class Transection extends StatefulWidget {
   const Transection({
     super.key,
   });
+
+  @override
+  State<Transection> createState() => _TransectionState();
+}
+
+class _TransectionState extends State<Transection> {
+  Future<Map<String, dynamic>> readJson() async {
+    final String response = await rootBundle.loadString('assects/main.json');
+    final data = await jsonDecode(response);
+    return data;
+  }
 
   @override
   SafeArea build(BuildContext context) {
@@ -25,26 +38,25 @@ class Transection extends StatelessWidget {
               ),
             ),
           ),
-          Main_page(
-            label: "Recieved",
-            time: "Today, 03:07 am",
-            icon: Icons.wallet,
-            color: Colors.green,
-            price: '₹100',
-          ),
-          Main_page(
-            label: "Chinmay samosa",
-            time: "Today, 03:01 am",
-            icon: Icons.price_change,
-            color: Colors.blue,
-            price: '₹20',
-          ),
-          Main_page(
-            label: 'Taxi',
-            time: 'Today, 02:59 am',
-            icon: Icons.directions_car_filled_rounded,
-            color: Colors.grey,
-            price: '₹300',
+          SizedBox(
+            height: 200,
+            child: FutureBuilder(
+                future: readJson(),
+                builder: (context, snapshot) {
+                  final data = snapshot.data!;
+                  return ListView.builder(
+                    itemCount: 3,
+                    itemBuilder: (context, index) {
+                      return Main_page(
+                          label: data['month'][0]['Expances'][index]
+                              ['Discription'],
+                          time: data['month'][0]['Expances'][index]['Date'],
+                          icon: Icons.dinner_dining,
+                          color: Colors.green,
+                          price: data['month'][0]['Expances'][index]['Amount']);
+                    },
+                  );
+                }),
           ),
           Padding(
             padding: const EdgeInsets.all(2),
