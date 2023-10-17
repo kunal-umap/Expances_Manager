@@ -72,7 +72,7 @@ class _TransectionState extends State<Transection> {
                   onTap: () {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return TransactionPage();
+                      return const TransactionPage();
                     }));
                   },
                   child: const Text(
