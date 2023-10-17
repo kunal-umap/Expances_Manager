@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:expances_management/pages/Home/Home_Wedgets/GraphSection/Graph.dart';
 import 'package:expances_management/pages/Home/Home_Wedgets/Transection/Main_page.dart';
+import 'package:expances_management/pages/Transaction_Page/transactionPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -68,7 +69,12 @@ class _TransectionState extends State<Transection> {
               child: Padding(
                 padding: const EdgeInsets.all(20),
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) {
+                      return TransactionPage();
+                    }));
+                  },
                   child: const Text(
                     "VIEW TRANSACTIONS",
                     textAlign: TextAlign.start,
