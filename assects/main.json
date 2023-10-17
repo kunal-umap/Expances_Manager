@@ -1,5 +1,4 @@
-[
-  {
+{
     "year": 2023,
     "month": [
       {
@@ -9,18 +8,24 @@
             "Discription": "Samosa",
             "mode": "Online",
             "Category": "EAT",
-            "Date": "23-09-2023",
-            "Amount": 50
+            "Date": "24-09-2023",
+            "Amount": "50"
           },
           {
-            "Discription": "Samosa",
+            "Discription": "Taxi",
             "mode": "Online",
             "Category": "EAT",
             "Date": "23-09-2023",
-            "Amount": 50
+            "Amount": "100"
+          },
+          {
+            "Discription": "Shoping",
+            "mode": "Online",
+            "Category": "EAT",
+            "Date": "22-09-2023",
+            "Amount": "1000"
           }
         ]
-
       },
       {
         "value": "jan",
@@ -30,23 +35,23 @@
             "mode": "Online",
             "Category": "EAT",
             "Date": "23-09-2023",
-            "Amount": 50
+            "Amount": "50"
           },
           {
             "Discription": "Samosa",
             "mode": "Online",
             "Category": "EAT",
             "Date": "23-09-2023",
-            "Amount": 50
+            "Amount": "50"
+          },
+          {
+            "Discription": "Samosa",
+            "mode": "Online",
+            "Category": "EAT",
+            "Date": "23-09-2023",
+            "Amount": "50"
           }
         ]
       }
-
     ]
-
-  },
-  {
-    "year": 2022
-
   }
-]
