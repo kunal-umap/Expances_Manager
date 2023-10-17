@@ -1,4 +1,5 @@
 import 'package:expances_management/Pages/Home/Home_Wedgets/GraphSection/Graph_Chart.dart';
+import 'package:expances_management/Pages/Transaction_Page/MoreDetail/detailGraph.dart';
 import 'package:flutter/material.dart';
 
 class Graph extends StatelessWidget {
@@ -68,7 +69,12 @@ class Graph extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(20, 12, 12, 20),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return const DetailGraph();
+                      }));
+                    },
                     child: const Text(
                       "VIEW DETAILS",
                       textAlign: TextAlign.start,
