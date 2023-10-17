@@ -162,8 +162,8 @@ class _TransactionPageState extends State<TransactionPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(useMaterial3: true)
-          .copyWith(appBarTheme: AppBarTheme(color: Colors.black45)),
+      theme: ThemeData.dark(useMaterial3: true).copyWith(
+          appBarTheme: AppBarTheme(color: Color.fromARGB(255, 58, 48, 55))),
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
