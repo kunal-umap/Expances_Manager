@@ -44,17 +44,25 @@ class _TransectionState extends State<Transection> {
             child: FutureBuilder(
                 future: readJson(),
                 builder: (context, snapshot) {
+                  // if (snapshot.connectionState == ConnectionState.waiting) {
+                  //   return const Center(
+                  //       child: CircularProgressIndicator.adaptive());
+                  // }
+
+                  // if (snapshot.hasError) {
+                  //   return Center(child: Text(snapshot.error.toString()));
+                  // }
+
                   final data = snapshot.data!;
                   return ListView.builder(
                     itemCount: 3,
                     itemBuilder: (context, index) {
                       return Main_page(
-                          label: data['month'][0]['Expances'][index]
-                              ['Discription'],
-                          time: data['month'][0]['Expances'][index]['Date'],
+                          label: data[0]['month'][0]['all'][0]['description'],
+                          time: data[0]['month'][0]['all'][0]['description'],
                           icon: Icons.dinner_dining,
                           color: Colors.green,
-                          price: data['month'][0]['Expances'][index]['Amount']);
+                          price: data[0]['month'][0]['all'][0]['description']);
                     },
                   );
                 }),

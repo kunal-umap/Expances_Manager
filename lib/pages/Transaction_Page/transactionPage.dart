@@ -3,16 +3,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-//void main() {
-//runApp(
-//MaterialApp(
-//debugShowCheckedModeBanner: false,
-//theme: ThemeData.dark(useMaterial3: true),
-//home: const TransactionPage(),
-//),
-//);
-//}
-
 class TransactionPage extends StatefulWidget {
   const TransactionPage({super.key});
 
