@@ -1,7 +1,9 @@
 import 'package:expances_management/pages/Home/home.dart';
 import 'package:flutter/material.dart';
+// ignore: unnecessary_import
 import 'package:flutter/services.dart';
 
+// ignore: camel_case_types
 class add_Transaction extends StatefulWidget {
   const add_Transaction({super.key});
 
@@ -9,6 +11,7 @@ class add_Transaction extends StatefulWidget {
   State<add_Transaction> createState() => _add_TransactionState();
 }
 
+// ignore: camel_case_types
 class _add_TransactionState extends State<add_Transaction> {
   var valueChoos = " ";
   var listItem = [
@@ -54,9 +57,9 @@ class _add_TransactionState extends State<add_Transaction> {
           color: Colors.black,
           child: ListView(
             children: [
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -74,7 +77,7 @@ class _add_TransactionState extends State<add_Transaction> {
                           }).toList(),
                           onChanged: (newValueSelected) {
                             setState(() {
-                              this.listItemSelected = newValueSelected!;
+                              listItemSelected = newValueSelected!;
                             });
                           })
                     ],
@@ -99,7 +102,7 @@ class _add_TransactionState extends State<add_Transaction> {
                           }).toList(),
                           onChanged: (newModeSelected) {
                             setState(() {
-                              this.modeItemSelected = newModeSelected!;
+                              modeItemSelected = newModeSelected!;
                             });
                           })
                     ],
