@@ -1,6 +1,5 @@
 import 'package:expances_management/pages/Home/home.dart';
 import 'package:flutter/material.dart';
-// ignore: unnecessary_import
 import 'package:flutter/services.dart';
 
 // ignore: camel_case_types
@@ -13,31 +12,33 @@ class add_Transaction extends StatefulWidget {
 
 // ignore: camel_case_types
 class _add_TransactionState extends State<add_Transaction> {
-  var valueChoos = " ";
-  var listItem = [
+  var _listItem = [
     "EXPENSE",
     "INCOME",
-    "TRANSFER",
-    "ATM Withdeawal",
-    "Cash Received",
-    "CASHBACK"
-        "REFUND"
   ];
   var listItemSelected = "EXPENSES";
   var modechoose = " ";
   var modeItem = ["Online", "Cash"];
-  var modeItemSelected = "Online";
+  var _modeItemSelected = "Online";
+
+  final _categoryItem = [
+    (" Eat"),
+    ("Bill"),
+    ("Education"),
+    ("EMI"),
+    ("Gadget")
+  ];
+  var _categorySelected = ("Eat");
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.black,
           title: const Text(
             "Add Transaction",
             style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 187, 38, 162)),
+                color: Color.fromARGB(255, 160, 25, 184)),
           ),
           centerTitle: true,
           leading: IconButton(
@@ -48,18 +49,17 @@ class _add_TransactionState extends State<add_Transaction> {
             },
             icon: const Icon(
               Icons.arrow_left,
-              color: Color.fromARGB(255, 187, 38, 162),
+              color: Color.fromARGB(255, 160, 25, 184),
               size: 30,
             ),
           ),
         ),
         body: Container(
-          color: Colors.black,
           child: ListView(
             children: [
               const SizedBox(height: 20),
               Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -77,14 +77,14 @@ class _add_TransactionState extends State<add_Transaction> {
                           }).toList(),
                           onChanged: (newValueSelected) {
                             setState(() {
-                              listItemSelected = newValueSelected!;
+                              this.listItemSelected = newValueSelected!;
                             });
                           })
                     ],
                   )),
-              const SizedBox(height: 40),
+              const SizedBox(height: 10),
               Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.fromLTRB(20, 5, 16, 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -102,14 +102,14 @@ class _add_TransactionState extends State<add_Transaction> {
                           }).toList(),
                           onChanged: (newModeSelected) {
                             setState(() {
-                              modeItemSelected = newModeSelected!;
+                              this.modeItemSelected = newModeSelected!;
                             });
                           })
                     ],
                   )),
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               const Padding(
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.fromLTRB(20, 5, 16, 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -118,26 +118,43 @@ class _add_TransactionState extends State<add_Transaction> {
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                       SizedBox(width: 25),
-                      SizedBox(width: 250, height: 20, child: TextField())
+                      SizedBox(width: 250, height: 20, child: TextField()),
                     ],
                   )),
-              const SizedBox(height: 40),
-              const Padding(
-                  padding: EdgeInsets.all(16.0),
+              const SizedBox(height: 35),
+              Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 5, 16, 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "Category",
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
-                      SizedBox(width: 40),
-                      SizedBox(width: 250, height: 20, child: TextField())
+                      const SizedBox(width: 40),
+                      SizedBox(
+                          width: 250,
+                          child: DropdownButton<String>(
+                              dropdownColor: Colors.black,
+                              isExpanded: true,
+                              hint: const Text("Select Category"),
+                              items: _categoryItem.map((dropDownStringItem) {
+                                return DropdownMenuItem<String>(
+                                  value: dropDownStringItem,
+                                  child: Text(dropDownStringItem),
+                                );
+                              }).toList(),
+                              onChanged: (newCategorySelected) {
+                                setState(() {
+                                  _categorySelected =
+                                      newCategorySelected as String;
+                                });
+                              }))
                     ],
                   )),
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
               Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.fromLTRB(20, 5, 16, 5),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -154,15 +171,17 @@ class _add_TransactionState extends State<add_Transaction> {
               const SizedBox(width: 60),
               SizedBox(
                 height: 50,
-                child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "Add",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    )),
+                child: BottomAppBar(
+                  child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text(
+                        "Add",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      )),
+                ),
               ),
             ],
           ),
