@@ -21,9 +21,11 @@ class _bottom_barState extends State<Home> {
     return Scaffold(
       appBar: homeTopBar(),
       drawer: topBarMenu(),
-      body: IndexedStack(
-        index: currentPage,
-        children: pages,
+      body: SingleChildScrollView(
+        child: IndexedStack(
+          index: currentPage,
+          children: pages,
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -33,7 +35,6 @@ class _bottom_barState extends State<Home> {
               currentPage = index;
             });
           },
-          currentIndex: currentPage,
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
