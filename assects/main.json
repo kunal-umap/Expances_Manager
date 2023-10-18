@@ -1,57 +1,162 @@
-{
+[
+  {
     "year": 2023,
     "month": [
       {
-        "value": "jan",
-        "Expances": [
+        "value": "feb",
+        "all": [
           {
-            "Discription": "Samosa",
+            "description": "Samosa",
             "mode": "Online",
-            "Category": "EAT",
-            "Date": "24-09-2023",
-            "Amount": "50"
+            "category": "DINE",
+            "date": "24-09-2023",
+            "amount": "50",
+            "type": "Expenses"
           },
           {
-            "Discription": "Taxi",
+            "description": "Taxi",
             "mode": "Online",
-            "Category": "EAT",
-            "Date": "23-09-2023",
-            "Amount": "100"
+            "category": "TRAVEL",
+            "date": "23-09-2023",
+            "amount": "100",
+            "type": "Expenses"
           },
           {
-            "Discription": "Shoping",
+            "description": "D-mart & Cloths",
             "mode": "Online",
-            "Category": "EAT",
-            "Date": "22-09-2023",
-            "Amount": "1000"
+            "category": "SHOPPING",
+            "date": "22-09-2023",
+            "amount": "1000",
+            "type": "Expenses"
+          },
+          {
+            "description": "Internship",
+            "mode": "Online",
+            "category": "OTHER",
+            "date": "22-09-2023",
+            "amount": "1000",
+            "type": "Income"
           }
         ]
       },
       {
         "value": "jan",
-        "Expances": [
+        "all": [
           {
-            "Discription": "Samosa",
+            "description": "Samosa",
             "mode": "Online",
-            "Category": "EAT",
-            "Date": "23-09-2023",
-            "Amount": "50"
+            "category": "DINE",
+            "date": "24-09-2023",
+            "amount": "50",
+            "type": "Expenses"
           },
           {
-            "Discription": "Samosa",
+            "description": "Taxi",
             "mode": "Online",
-            "Category": "EAT",
-            "Date": "23-09-2023",
-            "Amount": "50"
+            "category": "TRAVEL",
+            "date": "23-09-2023",
+            "amount": "100",
+            "type": "Income"
           },
           {
-            "Discription": "Samosa",
+            "description": "D-mart & Cloths",
             "mode": "Online",
-            "Category": "EAT",
-            "Date": "23-09-2023",
-            "Amount": "50"
+            "category": "SHOPPING",
+            "date": "22-09-2023",
+            "amount": "1000",
+            "type": "Expenses"
+          },
+          {
+            "description": "Internship",
+            "mode": "Online",
+            "category": "OTHER",
+            "date": "22-09-2023",
+            "amount": "1000",
+            "type": "Income"
           }
+
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2022,
+    "month": [
+      {
+        "value": "march",
+        "all": [
+          {
+            "description": "Samosa",
+            "mode": "Online",
+            "category": "DINE",
+            "date": "24-09-2023",
+            "amount": "50",
+            "type": "Expenses"
+          },
+          {
+            "description": "Taxi",
+            "mode": "Online",
+            "category": "TRAVEL",
+            "date": "23-09-2023",
+            "amount": "100",
+            "type": "Income"
+          },
+          {
+            "description": "D-mart & Cloths",
+            "mode": "Online",
+            "category": "SHOPPING",
+            "date": "22-09-2023",
+            "amount": "1000",
+            "type": "Expenses"
+          },
+          {
+            "description": "Internship dev",
+            "mode": "Online",
+            "category": "OTHER",
+            "date": "22-09-2023",
+            "amount": "1000",
+            "type": "Income"
+          }
+        ]
+      },
+      {
+        "value": "april",
+        "all": [
+          {
+            "description": "Kachori",
+            "mode": "Online",
+            "category": "DINE",
+            "date": "24-09-2023",
+            "amount": "50",
+            "type": "Expenses"
+          },
+          {
+            "description": "Kapil paise",
+            "mode": "Online",
+            "category": "TRAVEL",
+            "date": "23-09-2023",
+            "amount": "100",
+            "type": "Income"
+          },
+          {
+            "description": "D-mart & Cloths",
+            "mode": "Online",
+            "category": "SHOPPING",
+            "date": "22-09-2023",
+            "amount": "1000",
+            "type": "Expenses"
+          },
+          {
+            "description": "Internship",
+            "mode": "Online",
+            "category": "OTHER",
+            "date": "22-09-2023",
+            "amount": "1000",
+            "type": "Income"
+          }
+
         ]
       }
     ]
   }
+]

@@ -107,7 +107,7 @@ class PieChartKuState extends State {
             title: '40%',
             titlePositionPercentageOffset: 1.2,
             badgeWidget: Text("gra"),
-            badgePositionPercentageOffset: 0.8,
+            badgePositionPercentageOffset: 1.4,
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
