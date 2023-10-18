@@ -16,7 +16,6 @@ class Main_page extends StatefulWidget {
     required this.color,
     required this.price,
   });
-
   @override
   State<Main_page> createState() => _Main_pageState();
 }
