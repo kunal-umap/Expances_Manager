@@ -15,9 +15,9 @@ class Transection extends StatefulWidget {
 }
 
 class _TransectionState extends State<Transection> {
-  Future<Map<String, dynamic>> readJson() async {
-    final String response = await rootBundle.loadString('assects/main.json');
-    final data = await jsonDecode(response);
+  Future<List<Map<String, dynamic>>> readJson() async {
+    final response = await rootBundle.loadString('assects/main.json');
+    final data = List<Map<String, dynamic>>.from(jsonDecode(response));
     return data;
   }
 
@@ -42,30 +42,27 @@ class _TransectionState extends State<Transection> {
           SizedBox(
             height: 200,
             child: FutureBuilder(
-                future: readJson(),
-                builder: (context, snapshot) {
-                  // if (snapshot.connectionState == ConnectionState.waiting) {
-                  //   return const Center(
-                  //       child: CircularProgressIndicator.adaptive());
-                  // }
-
-                  // if (snapshot.hasError) {
-                  //   return Center(child: Text(snapshot.error.toString()));
-                  // }
-
+              future: readJson(),
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (snapshot.data == null) {
+                  return Center(child: Text(snapshot.error.toString()));
+                } else {
                   final data = snapshot.data!;
                   return ListView.builder(
                     itemCount: 3,
                     itemBuilder: (context, index) {
                       return Main_page(
-                          label: data[0]['month'][0]['all'][0]['description'],
-                          time: data[0]['month'][0]['all'][0]['description'],
+                          label: data[0]['month'][0]['all'][index]
+                              ['description'],
+                          time: data[0]['month'][0]['all'][index]['date'],
                           icon: Icons.dinner_dining,
                           color: Colors.green,
-                          price: data[0]['month'][0]['all'][0]['description']);
+                          price: data[0]['month'][0]['all'][index]['amount']);
                     },
                   );
-                }),
+                }
+              },
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(2),
