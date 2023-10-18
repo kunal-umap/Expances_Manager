@@ -11,8 +11,15 @@ class DetailGraph extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Expenses"),
       ),
-      body: const Center(
-        child: PieChartKu(),
+      body: const SingleChildScrollView(
+        child: Column(
+          children: [
+            Center(
+              child: PieChartKu(),
+            ),
+            Text("data")
+          ],
+        ),
       ),
     );
   }

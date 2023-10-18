@@ -14,11 +14,10 @@ class PieChartKuState extends State {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 0.8,
-      child: Column(
-        children: <Widget>[
-          Expanded(
+    return Column(
+      children: <Widget>[
+        Center(
+          child: Expanded(
             child: AspectRatio(
               aspectRatio: 1,
               child: PieChart(
@@ -41,63 +40,62 @@ class PieChartKuState extends State {
                     show: false,
                   ),
                   sectionsSpace: 3,
-                  centerSpaceRadius: 55,
+                  centerSpaceRadius: 45,
                   sections: showingSections(),
                 ),
               ),
             ),
           ),
-          const Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              Indicator(
-                color: Colors.blue,
-                text: 'First',
-                isSquare: true,
-              ),
-              SizedBox(
-                height: 4,
-              ),
-              Indicator(
-                color: Colors.amber,
-                text: 'Second',
-                isSquare: true,
-              ),
-              SizedBox(
-                height: 4,
-              ),
-              Indicator(
-                color: Colors.deepPurple,
-                text: 'Third',
-                isSquare: true,
-              ),
-              SizedBox(
-                height: 4,
-              ),
-              Indicator(
-                color: Colors.green,
-                text: 'Fourth',
-                isSquare: true,
-              ),
-              SizedBox(
-                height: 18,
-              ),
-            ],
-          ),
-          const SizedBox(
-            width: 28,
-          ),
-        ],
-      ),
+        ),
+        const Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Indicator(
+              color: Colors.blue,
+              text: 'First',
+              isSquare: true,
+            ),
+            SizedBox(
+              height: 4,
+            ),
+            Indicator(
+              color: Colors.amber,
+              text: 'Second',
+              isSquare: true,
+            ),
+            SizedBox(
+              height: 4,
+            ),
+            Indicator(
+              color: Colors.deepPurple,
+              text: 'Third',
+              isSquare: true,
+            ),
+            SizedBox(
+              height: 4,
+            ),
+            Indicator(
+              color: Colors.green,
+              text: 'Fourth',
+              isSquare: true,
+            ),
+            SizedBox(
+              height: 18,
+            ),
+          ],
+        ),
+        const SizedBox(
+          width: 28,
+        ),
+      ],
     );
   }
 
   List<PieChartSectionData> showingSections() {
     return List.generate(4, (i) {
       final isTouched = i == touchedIndex;
-      final fontSize = isTouched ? 24.0 : 14.0;
-      final radius = isTouched ? 95.0 : 85.0;
+      final fontSize = isTouched ? 22.0 : 14.0;
+      final radius = isTouched ? 88.0 : 78.0;
       const shadows = [Shadow(color: Colors.black, blurRadius: 1.2)];
       switch (i) {
         case 0:
@@ -105,9 +103,15 @@ class PieChartKuState extends State {
             color: Colors.blueAccent,
             value: 40,
             title: '40%',
-            titlePositionPercentageOffset: 1.2,
-            badgeWidget: Text("gra"),
-            badgePositionPercentageOffset: 1.4,
+            titlePositionPercentageOffset: 0.80,
+            badgeWidget: const Text(
+                "First",
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.white70
+              ),
+            ),
+            badgePositionPercentageOffset: 1.32,
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -122,6 +126,15 @@ class PieChartKuState extends State {
             value: 30,
             title: '30%',
             radius: radius,
+            titlePositionPercentageOffset: 0.75,
+            badgeWidget: const Text(
+                "Second",
+              style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.white70
+              ),
+            ),
+            badgePositionPercentageOffset: 1.32,
             titleStyle: TextStyle(
               fontSize: fontSize,
               fontWeight: FontWeight.bold,
@@ -135,6 +148,15 @@ class PieChartKuState extends State {
             value: 15,
             title: '15%',
             radius: radius,
+            titlePositionPercentageOffset: 0.75,
+            badgeWidget: const Text(
+                "Third",
+              style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.white70
+              ),
+            ),
+            badgePositionPercentageOffset: 1.32,
             titleStyle: TextStyle(
               fontSize: fontSize,
               fontWeight: FontWeight.bold,
@@ -148,6 +170,15 @@ class PieChartKuState extends State {
             value: 15,
             title: '15%',
             radius: radius,
+            titlePositionPercentageOffset: 0.75,
+            badgeWidget: const Text(
+                "Forth",
+              style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.white70
+              ),
+            ),
+            badgePositionPercentageOffset: 1.32,
             titleStyle: TextStyle(
               fontSize: fontSize,
               fontWeight: FontWeight.bold,
