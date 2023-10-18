@@ -35,9 +35,7 @@ class _add_TransactionState extends State<add_Transaction> {
         appBar: AppBar(
           title: const Text(
             "Add Transaction",
-            style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 160, 25, 184)),
+            style: TextStyle(color: Color.fromARGB(255, 160, 25, 184)),
           ),
           centerTitle: true,
           leading: IconButton(
@@ -49,7 +47,7 @@ class _add_TransactionState extends State<add_Transaction> {
             icon: const Icon(
               Icons.arrow_left,
               color: Color.fromARGB(255, 160, 25, 184),
-              size: 30,
+              size: 40,
             ),
           ),
         ),
