@@ -13,8 +13,8 @@ Drawer topBarMenu() {
           accountEmail: null,
           currentAccountPicture: CircleAvatar(
             child: ClipOval(
-              child: Image.network(
-                'https://cdn3d.iconscout.com/3d/premium/thumb/user-6332708-5209354.png',
+              child: Image.asset(
+                'assects/images/user-6332708-5209354.webp',
                 width: 90,
                 height: 90,
                 fit: BoxFit.cover,
@@ -24,8 +24,8 @@ Drawer topBarMenu() {
           decoration: const BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: NetworkImage(
-                  'https://t4.ftcdn.net/jpg/05/21/95/85/360_F_521958580_kNDeJSIB0VUVqJ0n9fUwwubwHTRkn2VS.jpg'),
+              image: AssetImage(
+                  'assects/images/360_F_521958580_kNDeJSIB0VUVqJ0n9fUwwubwHTRkn2VS.jpg'),
             ),
           ),
         ),
