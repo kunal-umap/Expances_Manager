@@ -2,6 +2,7 @@
 import 'package:expances_management/pages/Home/Home_Wedgets/TopBar/title.dart';
 import 'package:expances_management/pages/Home/Home_Wedgets/TopBar/topbar_menu.dart';
 import 'package:expances_management/pages/Home/Home_Wedgets/Transection/transection.dart';
+import 'package:expances_management/pages/TransactionPage/Add_TransactionPage.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -43,6 +44,21 @@ class _bottom_barState extends State<Home> {
               label: "Transaction",
             ),
           ]),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+      floatingActionButton: FloatingActionButton(
+        elevation: 10.0,
+        foregroundColor: Colors.black,
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const add_Transaction(),
+            ),
+          );
+        },
+        backgroundColor: const Color.fromARGB(255, 160, 25, 184),
+        shape: const CircleBorder(),
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
