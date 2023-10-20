@@ -83,10 +83,13 @@ class _TransectionState extends State<Transection> {
                 padding: const EdgeInsets.all(20),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) {
-                      return const TransactionPage();
-                    }));
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const TransactionPage();
+                        },
+                      ),
+                    );
                   },
                   child: const Text(
                     "VIEW TRANSACTIONS",

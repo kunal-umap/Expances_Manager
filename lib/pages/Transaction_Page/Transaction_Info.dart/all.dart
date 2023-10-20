@@ -1,13 +1,16 @@
 import 'dart:convert';
 import 'package:expances_management/pages/Home/Home_Wedgets/Transection/Main_page.dart';
+import 'package:expances_management/pages/Transaction_Page/transactionPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-int selectedyear = (DateTime.now().year);
-int selectedmonth = (DateTime.now().month);
+String? selectedmonth = selectedMonth.data;
+int selectedyear = selectedYear;
 Future<Map<String, dynamic>> readJson() async {
   final response = await rootBundle.loadString('assects/data.json');
   final data = (jsonDecode(response));
+  print("$selectedyear");
+  print("$selectedYear");
   return data;
 }
 
@@ -23,6 +26,8 @@ class All extends StatefulWidget {
 class _Transaction_InfoState extends State<All> {
   @override
   Widget build(BuildContext context) {
+    print("$selectedyear");
+    print("$selectedYear");
     return Scaffold(
       body: Column(
         children: [
@@ -35,16 +40,16 @@ class _Transaction_InfoState extends State<All> {
                 } else {
                   final data = snapshot.data!;
                   return ListView.builder(
-                    itemCount: data["$selectedyear"]["$selectedmonth"].length,
+                    itemCount: data["$selectedyear"][selectedmonth].length,
                     itemBuilder: (context, index) {
                       return Main_page(
-                          label: data["$selectedyear"]["$selectedmonth"][index]
+                          label: data["$selectedyear"][selectedmonth][index]
                               ["description"],
-                          time: data["$selectedyear"]["$selectedmonth"][index]
+                          time: data["$selectedyear"][selectedmonth][index]
                               ["date"],
                           icon: Icons.dinner_dining,
                           color: Colors.green,
-                          price: data["$selectedyear"]["$selectedmonth"][index]
+                          price: data["$selectedyear"][selectedmonth][index]
                               ["amount"]);
                     },
                   );
