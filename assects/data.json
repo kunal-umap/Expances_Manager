@@ -26,7 +26,7 @@
         "type": "Expenses"
       },
       {
-        "description": "Internship",
+        "description": "Intern",
         "mode": "Online",
         "category": "OTHER",
         "date": "22-09-2023",
@@ -35,7 +35,38 @@
       }
     ],
     "02": [
-
+      {
+        "description": "Samosa",
+        "mode": "Online",
+        "category": "DINE",
+        "date": "24-09-2023",
+        "amount": "50",
+        "type": "Expenses"
+      },
+      {
+        "description": "Taxi",
+        "mode": "Online",
+        "category": "TRAVEL",
+        "date": "23-09-2023",
+        "amount": "100",
+        "type": "Expenses"
+      },
+      {
+        "description": "D-mart & Cloths",
+        "mode": "Online",
+        "category": "SHOPPING",
+        "date": "22-09-2023",
+        "amount": "1000",
+        "type": "Expenses"
+      },
+      {
+        "description": "Internship",
+        "mode": "Online",
+        "category": "OTHER",
+        "date": "22-09-2023",
+        "amount": "1000",
+        "type": "Income"
+      }
     ],
     "04": [
       {
