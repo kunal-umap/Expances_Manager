@@ -3,6 +3,14 @@ import 'package:expances_management/pages/Home/Home_Wedgets/Transection/Main_pag
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+int selectedyear = (DateTime.now().year);
+int selectedmonth = (DateTime.now().month);
+Future<Map<String, dynamic>> readJson() async {
+  final response = await rootBundle.loadString('assects/data.json');
+  final data = (jsonDecode(response));
+  return data;
+}
+
 // ignore: camel_case_types
 class All extends StatefulWidget {
   const All({super.key});
@@ -13,14 +21,6 @@ class All extends StatefulWidget {
 
 // ignore: camel_case_types
 class _Transaction_InfoState extends State<All> {
-  int selectedyear = (DateTime.now().year);
-  int selectedmonth = (DateTime.now().month);
-  Future<Map<String, dynamic>> readJson() async {
-    final response = await rootBundle.loadString('assects/data.json');
-    final data = (jsonDecode(response));
-    return data;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +35,7 @@ class _Transaction_InfoState extends State<All> {
                 } else {
                   final data = snapshot.data!;
                   return ListView.builder(
-                    itemCount: data["2023"]["01"].length,
+                    itemCount: data["$selectedyear"]["$selectedmonth"].length,
                     itemBuilder: (context, index) {
                       return Main_page(
                           label: data["$selectedyear"]["$selectedmonth"][index]

@@ -15,6 +15,8 @@ class Transection extends StatefulWidget {
 }
 
 class _TransectionState extends State<Transection> {
+  int selectedyear = DateTime.now().year;
+  int selectedmonth = (DateTime.now().month);
   Future<Map<String, dynamic>> readJson() async {
     final response = await rootBundle.loadString('assects/data.json');
     final data = (jsonDecode(response));
@@ -49,14 +51,21 @@ class _TransectionState extends State<Transection> {
                 } else {
                   final data = snapshot.data!;
                   return ListView.builder(
-                    itemCount: data["2023"]["01"].length,
+                    itemCount: data["$selectedyear"]["$selectedmonth"].length,
                     itemBuilder: (context, index) {
-                      return Main_page(
-                          label: data["2023"]["01"][index]["description"],
-                          time: data["2023"]["01"][index]["date"],
+                      if (index < 3) {
+                        return Main_page(
+                          label: data["$selectedyear"]["$selectedmonth"][index]
+                              ["description"],
+                          time: data["$selectedyear"]["$selectedmonth"][index]
+                              ["date"],
                           icon: Icons.dinner_dining,
                           color: Colors.green,
-                          price: data["2023"]["01"][index]["amount"]);
+                          price: data["$selectedyear"]["$selectedmonth"][index]
+                              ["amount"],
+                        );
+                      }
+                      return const SizedBox();
                     },
                   );
                 }
