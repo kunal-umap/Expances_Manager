@@ -1,5 +1,6 @@
 import 'package:expances_management/pages/Home/home.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // ignore: camel_case_types
 class add_Transaction extends StatefulWidget {
@@ -56,7 +57,7 @@ class _add_TransactionState extends State<add_Transaction> {
             children: [
               const SizedBox(height: 20),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 5, 16, 5),
+                  padding: EdgeInsets.all(20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -65,25 +66,18 @@ class _add_TransactionState extends State<add_Transaction> {
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                       const SizedBox(width: 80),
-                      SizedBox(
-                        width: 250,
-                        child: DropdownButton<String>(
-                            hint: const Text("Select Type"),
-                            isExpanded: true,
-                            dropdownColor: Colors.black,
-                            elevation: 5,
-                            items: _listItem.map((String dropDownStringItem) {
-                              return DropdownMenuItem<String>(
-                                value: dropDownStringItem,
-                                child: Text(dropDownStringItem),
-                              );
-                            }).toList(),
-                            onChanged: (newValueSelected) {
-                              setState(() {
-                                _listItem = newValueSelected as List<String>;
-                              });
-                            }),
-                      )
+                      DropdownButton<String>(
+                          items: _listItem.map((String dropDownStringItem) {
+                            return DropdownMenuItem<String>(
+                              value: dropDownStringItem,
+                              child: Text(dropDownStringItem),
+                            );
+                          }).toList(),
+                          onChanged: (newValueSelected) {
+                            setState(() {
+                              this.listItemSelected = newValueSelected!;
+                            });
+                          })
                     ],
                   )),
               const SizedBox(height: 10),
@@ -97,24 +91,18 @@ class _add_TransactionState extends State<add_Transaction> {
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
                       const SizedBox(width: 70),
-                      SizedBox(
-                        width: 250,
-                        child: DropdownButton<String>(
-                            dropdownColor: Colors.black,
-                            isExpanded: true,
-                            hint: const Text("Select Mode"),
-                            items: modeItem.map((String dropDownStringItem) {
-                              return DropdownMenuItem<String>(
-                                value: dropDownStringItem,
-                                child: Text(dropDownStringItem),
-                              );
-                            }).toList(),
-                            onChanged: (newModeSelected) {
-                              setState(() {
-                                _modeItemSelected = newModeSelected as String;
-                              });
-                            }),
-                      )
+                      DropdownButton<String>(
+                          items: modeItem.map((String dropDownStringItem) {
+                            return DropdownMenuItem<String>(
+                              value: dropDownStringItem,
+                              child: Text(dropDownStringItem),
+                            );
+                          }).toList(),
+                          onChanged: (newModeSelected) {
+                            setState(() {
+                              this._modeItemSelected = newModeSelected!;
+                            });
+                          })
                     ],
                   )),
               const SizedBox(height: 20),

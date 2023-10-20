@@ -63,6 +63,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assects/main.json
+    - assects/data.json
     - assects/images/360_F_521958580_kNDeJSIB0VUVqJ0n9fUwwubwHTRkn2VS.jpg
     - assects/images/user-6332708-5209354.webp
   #   - images/a_dot_ham.jpeg
