@@ -1,4 +1,6 @@
 // ignore_for_file: file_names
+import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/Expanses.dart';
+import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/Income.dart';
 import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/all.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -148,6 +150,7 @@ class _TransactionPageState extends State<TransactionPage> {
 
   @override
   Widget build(BuildContext context) {
+    int index = 0;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(useMaterial3: true).copyWith(
@@ -191,12 +194,15 @@ class _TransactionPageState extends State<TransactionPage> {
                 IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
               ],
             ),
-            bottom: const TabBar(
+            bottom: TabBar(
                 indicatorColor: Colors.white38,
                 dividerColor: Colors.white24,
                 labelColor: Colors.white60,
                 unselectedLabelColor: Colors.white,
-                tabs: [
+                onTap: (value) {
+                  index = value;
+                },
+                tabs: const [
                   Tab(
                     text: 'ALL',
                   ),
@@ -208,7 +214,13 @@ class _TransactionPageState extends State<TransactionPage> {
                   )
                 ]),
           ),
-          body: const Transaction_Info(),
+          body: const TabBarView(
+            children: [
+              Center(child: All()),
+              Center(child: Expanse()),
+              Center(child: Income()),
+            ],
+          ),
         ),
       ),
     );

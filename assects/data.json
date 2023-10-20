@@ -68,13 +68,13 @@
         "type": "Income"
       }
     ],
-    "04": [
+    "10": [
       {
-        "description": "Samosa",
-        "mode": "Online",
-        "category": "DINE",
+        "description": "Delivery",
+        "mode": "Offline",
+        "category": "Flipkart",
         "date": "24-09-2023",
-        "amount": "50",
+        "amount": "1000",
         "type": "Expenses"
       },
       {
@@ -82,7 +82,7 @@
         "mode": "Online",
         "category": "TRAVEL",
         "date": "23-09-2023",
-        "amount": "100",
+        "amount": "2000",
         "type": "Expenses"
       },
       {
@@ -91,7 +91,7 @@
         "category": "SHOPPING",
         "date": "22-09-2023",
         "amount": "1000",
-        "type": "Expenses"
+        "type": "Income"
       },
       {
         "description": "Internship",

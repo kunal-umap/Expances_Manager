@@ -49,7 +49,7 @@ class _TransectionState extends State<Transection> {
                 } else {
                   final data = snapshot.data!;
                   return ListView.builder(
-                    itemCount: 3,
+                    itemCount: data["2023"]["01"].length,
                     itemBuilder: (context, index) {
                       return Main_page(
                           label: data["2023"]["01"][index]["description"],
