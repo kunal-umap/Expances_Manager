@@ -15,7 +15,7 @@ class PieChartKuState extends State {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: <Widget>[
+      children: [
         Center(
           child: Expanded(
             child: AspectRatio(
@@ -49,6 +49,7 @@ class PieChartKuState extends State {
         ),
         const Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Indicator(
               color: Colors.blue,

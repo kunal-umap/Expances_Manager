@@ -11,16 +11,28 @@ class DetailGraph extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Expenses"),
       ),
-      body: const SingleChildScrollView(
+      body:  const SingleChildScrollView(
         child: Column(
           children: [
             Center(
               child: PieChartKu(),
             ),
-            Text("data")
+            Icon(
+              Icons.accessibility
+            ),
+
           ],
         ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterFloat,
+      floatingActionButton: FloatingActionButton(
+        // isExtended: true,
+          backgroundColor: Colors.green,
+          onPressed: () {},
+          // isExtended: true,
+          child: const Icon(Icons.add)
       ),
     );
   }
 }
+
