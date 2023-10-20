@@ -18,7 +18,6 @@ class _add_TransactionState extends State<add_Transaction> {
   var listItemSelected = "EXPENSES";
   var modechoose = " ";
   var modeItem = ["Online", "Cash"];
-  var _modeItemSelected = "Online";
 
   final _categoryItem = [
     (" Eat"),
@@ -27,7 +26,6 @@ class _add_TransactionState extends State<add_Transaction> {
     ("EMI"),
     ("Gadget")
   ];
-  var _categorySelected = ("Eat");
 
   @override
   Widget build(BuildContext context) {
@@ -45,9 +43,9 @@ class _add_TransactionState extends State<add_Transaction> {
               ));
             },
             icon: const Icon(
-              Icons.arrow_left,
+              Icons.arrow_back,
               color: Color.fromARGB(255, 160, 25, 184),
-              size: 40,
+              size: 25,
             ),
           ),
         ),
@@ -111,7 +109,8 @@ class _add_TransactionState extends State<add_Transaction> {
                             }).toList(),
                             onChanged: (newModeSelected) {
                               setState(() {
-                                _modeItemSelected = newModeSelected as String;
+                                var _modeItemSelected =
+                                    newModeSelected as String;
                               });
                             }),
                       )
@@ -156,43 +155,96 @@ class _add_TransactionState extends State<add_Transaction> {
                               }).toList(),
                               onChanged: (newCategorySelected) {
                                 setState(() {
-                                  _categorySelected =
+                                  var _categorySelected =
                                       newCategorySelected as String;
                                 });
                               }))
                     ],
                   )),
-              const SizedBox(height: 20),
-              Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 5, 16, 5),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.date_range,
-                          color: Color.fromARGB(255, 187, 38, 162),
+              const SizedBox(height: 30),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 5, 16, 5),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Date",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
                         ),
-                        tooltip: "Date",
-                      ),
-                    ],
-                  )),
-              const SizedBox(width: 60),
-              SizedBox(
-                height: 50,
-                child: BottomAppBar(
-                  child: ElevatedButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Add",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
+                        SizedBox(
+                            width: 140,
+                            height: 35,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(4),
+                                  borderSide:
+                                      const BorderSide(color: Colors.green),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(4),
+                                  borderSide:
+                                      const BorderSide(color: Colors.green),
+                                ),
+                                prefixIcon: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.calendar_month),
+                                  iconSize: 15,
+                                ),
+                              ),
+                              cursorHeight: 15,
+                            ))
+                      ],
+                    ),
+                  ),
+                  const VerticalDivider(
+                    color: Colors.green,
+                    thickness: 1,
+                    indent: 40,
+                    endIndent: 100,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 5, 16, 5),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        const Text(
+                          "in rs",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.white,
+                          ),
                         ),
-                      )),
-                ),
-              ),
+                        SizedBox(
+                            width: 140,
+                            height: 35,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(4),
+                                  borderSide:
+                                      const BorderSide(color: Colors.green),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(4),
+                                  borderSide:
+                                      const BorderSide(color: Colors.green),
+                                ),
+                                prefixIcon: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(Icons.currency_rupee),
+                                  iconSize: 15,
+                                ),
+                              ),
+                              cursorHeight: 15,
+                            ))
+                      ],
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ));
