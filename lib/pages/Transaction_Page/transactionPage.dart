@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/all.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -14,13 +15,13 @@ class TransactionPage extends StatefulWidget {
 
 class _TransactionPageState extends State<TransactionPage> {
   String showYear = 'Select Year';
-  DateTime _selectedYear = DateTime.now();
+  DateTime selectedYear = DateTime.now();
 
   Text showMonth = const Text(
     'Select Month',
     style: TextStyle(fontSize: 16),
   );
-  Text _selectedMonth = Text(
+  Text selectedMonth = Text(
     "${DateTime.now().month}",
     style: const TextStyle(fontSize: 16),
   );
@@ -93,8 +94,8 @@ class _TransactionPageState extends State<TransactionPage> {
                         itemExtent: 40,
                         onSelectedItemChanged: (index) {
                           setState(() {
-                            _selectedMonth = list.elementAt(index);
-                            showMonth = _selectedMonth;
+                            selectedMonth = list.elementAt(index);
+                            showMonth = selectedMonth;
                           });
                         },
                         children: list),
@@ -103,8 +104,8 @@ class _TransactionPageState extends State<TransactionPage> {
                       onPressed: () {
                         if (showMonth.data == 'Select Month') {
                           setState(() {
-                            _selectedMonth = list.elementAt(0);
-                            showMonth = _selectedMonth;
+                            selectedMonth = list.elementAt(0);
+                            showMonth = selectedMonth;
                           });
                         }
                         Navigator.pop(context);
@@ -130,12 +131,11 @@ class _TransactionPageState extends State<TransactionPage> {
               firstDate: DateTime(DateTime.now().year - 10, 1),
               lastDate: DateTime.now(),
               initialDate: DateTime.now(),
-              selectedDate: _selectedYear,
+              selectedDate: selectedYear,
               onChanged: (DateTime dateTime) {
-                print(dateTime.year);
                 setState(
                   () {
-                    _selectedYear = dateTime;
+                    selectedYear = dateTime;
                     showYear = "${dateTime.year}";
                   },
                 );
@@ -153,7 +153,8 @@ class _TransactionPageState extends State<TransactionPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(useMaterial3: true).copyWith(
-          appBarTheme: AppBarTheme(color: Color.fromARGB(255, 58, 48, 55))),
+          appBarTheme:
+              const AppBarTheme(color: Color.fromARGB(255, 58, 48, 55))),
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
@@ -209,23 +210,7 @@ class _TransactionPageState extends State<TransactionPage> {
                   )
                 ]),
           ),
-          body: const TabBarView(children: [
-            Center(
-                child: Text(
-              "One",
-              style: TextStyle(fontSize: 50),
-            )),
-            Center(
-                child: Text(
-              "Two",
-              style: TextStyle(fontSize: 50),
-            )),
-            Center(
-                child: Text(
-              "Three",
-              style: TextStyle(fontSize: 50),
-            ))
-          ]),
+          body: const Transaction_Info(),
         ),
       ),
     );

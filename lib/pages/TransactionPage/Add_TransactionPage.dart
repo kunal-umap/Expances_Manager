@@ -67,7 +67,7 @@ class _add_TransactionState extends State<add_Transaction> {
                       ),
                       const SizedBox(width: 80),
                       DropdownButton<String>(
-                          items: listItem.map((String dropDownStringItem) {
+                          items: _listItem.map((String dropDownStringItem) {
                             return DropdownMenuItem<String>(
                               value: dropDownStringItem,
                               child: Text(dropDownStringItem),
@@ -100,7 +100,7 @@ class _add_TransactionState extends State<add_Transaction> {
                           }).toList(),
                           onChanged: (newModeSelected) {
                             setState(() {
-                              this.modeItemSelected = newModeSelected!;
+                              this._modeItemSelected = newModeSelected!;
                             });
                           })
                     ],

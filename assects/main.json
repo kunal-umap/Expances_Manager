@@ -1,84 +1,92 @@
 [
   {
     "year": 2023,
-    "month": [
-      {
-        "value": "feb",
-        "all": [
-          {
-            "description": "Samosa",
-            "mode": "Online",
-            "category": "DINE",
-            "date": "24-09-2023",
-            "amount": "50",
-            "type": "Expenses"
-          },
-          {
-            "description": "Taxi",
-            "mode": "Online",
-            "category": "TRAVEL",
-            "date": "23-09-2023",
-            "amount": "100",
-            "type": "Expenses"
-          },
-          {
-            "description": "D-mart & Cloths",
-            "mode": "Online",
-            "category": "SHOPPING",
-            "date": "22-09-2023",
-            "amount": "1000",
-            "type": "Expenses"
-          },
-          {
-            "description": "Internship",
-            "mode": "Online",
-            "category": "OTHER",
-            "date": "22-09-2023",
-            "amount": "1000",
-            "type": "Income"
-          }
-        ]
-      },
-      {
-        "value": "jan",
-        "all": [
-          {
-            "description": "Samosa",
-            "mode": "Online",
-            "category": "DINE",
-            "date": "24-09-2023",
-            "amount": "50",
-            "type": "Expenses"
-          },
-          {
-            "description": "Taxi",
-            "mode": "Online",
-            "category": "TRAVEL",
-            "date": "23-09-2023",
-            "amount": "100",
-            "type": "Income"
-          },
-          {
-            "description": "D-mart & Cloths",
-            "mode": "Online",
-            "category": "SHOPPING",
-            "date": "22-09-2023",
-            "amount": "1000",
-            "type": "Expenses"
-          },
-          {
-            "description": "Internship",
-            "mode": "Online",
-            "category": "OTHER",
-            "date": "22-09-2023",
-            "amount": "1000",
-            "type": "Income"
-          }
+  "month": [
+    {
+      "value": "10",
+      "all": [
+        {
+          "description": "Samosa",
+          "mode": "Online",
+          "category": "DINE",
+          "date": "24-09-2023",
+          "amount": "50",
+          "type": "Expenses"
+        },
+        {
+          "description": "Taxi",
+          "mode": "Online",
+          "category": "TRAVEL",
+          "date": "23-09-2023",
+          "amount": "100",
+          "type": "Expenses"
+        },
+        {
+          "description": "D-mart & Cloths",
+          "mode": "Online",
+          "category": "SHOPPING",
+          "date": "22-09-2023",
+          "amount": "1000",
+          "type": "Expenses"
+        },
+        {
+          "description": "Internship",
+          "mode": "Online",
+          "category": "OTHER",
+          "date": "22-09-2023",
+          "amount": "1000",
+          "type": "Income"
+        },
+        {
+          "description": "Girlfriend",
+          "mode": "Online",
+          "category": "Shopping",
+          "date": "22-09-2023",
+          "amount": "7000",
+          "type": "Expenses"
+        }
+      ]
+    },
+    {
+      "value": "jan",
+      "all": [
+        {
+          "description": "Samosa",
+          "mode": "Online",
+          "category": "DINE",
+          "date": "24-09-2023",
+          "amount": "50",
+          "type": "Expenses"
+        },
+        {
+          "description": "Taxi",
+          "mode": "Online",
+          "category": "TRAVEL",
+          "date": "23-09-2023",
+          "amount": "100",
+          "type": "Income"
+        },
+        {
+          "description": "D-mart & Cloths",
+          "mode": "Online",
+          "category": "SHOPPING",
+          "date": "22-09-2023",
+          "amount": "1000",
+          "type": "Expenses"
+        },
+        {
+          "description": "Internship",
+          "mode": "Online",
+          "category": "OTHER",
+          "date": "22-09-2023",
+          "amount": "1000",
+          "type": "Income"
+        }
 
-        ]
-      }
-    ]
-  },
+      ]
+    }
+  ]
+},
   {
     "year": 2022,
     "month": [
