@@ -3,16 +3,15 @@ import 'package:expances_management/pages/Home/Home_Wedgets/Transection/Main_pag
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-// ignore: camel_case_types
-class All extends StatefulWidget {
-  const All({super.key});
+class Expanse extends StatefulWidget {
+  const Expanse({super.key});
 
   @override
-  State<All> createState() => _Transaction_InfoState();
+  State<Expanse> createState() => _Transaction_InfoState();
 }
 
 // ignore: camel_case_types
-class _Transaction_InfoState extends State<All> {
+class _Transaction_InfoState extends State<Expanse> {
   int selectedyear = (DateTime.now().year);
   int selectedmonth = (DateTime.now().month);
   Future<Map<String, dynamic>> readJson() async {
@@ -35,17 +34,22 @@ class _Transaction_InfoState extends State<All> {
                 } else {
                   final data = snapshot.data!;
                   return ListView.builder(
-                    itemCount: data["2023"]["01"].length,
+                    itemCount: data["$selectedyear"]["$selectedmonth"].length,
                     itemBuilder: (context, index) {
-                      return Main_page(
-                          label: data["$selectedyear"]["$selectedmonth"][index]
-                              ["description"],
-                          time: data["$selectedyear"]["$selectedmonth"][index]
-                              ["date"],
-                          icon: Icons.dinner_dining,
-                          color: Colors.green,
-                          price: data["$selectedyear"]["$selectedmonth"][index]
-                              ["amount"]);
+                      if (data["$selectedyear"]["$selectedmonth"][index]
+                              ["type"] ==
+                          "Expenses") {
+                        return Main_page(
+                            label: data["$selectedyear"]["$selectedmonth"]
+                                [index]["description"],
+                            time: data["$selectedyear"]["$selectedmonth"][index]
+                                ["date"],
+                            icon: Icons.dinner_dining,
+                            color: Colors.green,
+                            price: data["$selectedyear"]["$selectedmonth"]
+                                [index]["amount"]);
+                      }
+                      return const SizedBox();
                     },
                   );
                 }
