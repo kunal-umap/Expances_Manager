@@ -17,65 +17,64 @@ class TransactionPage extends StatefulWidget {
 }
 
 class _TransactionPageState extends State<TransactionPage> {
-  String showYear = ' -- ';
-  DateTime selectedYear = DateTime(DateTime.now().year);
+  String showYear = 'Select Year';
 
   Text showMonth = const Text(
-    ' -- ',
-    style: TextStyle(fontSize: 18),
+    'Select Month',
+    style: TextStyle(fontSize: 16),
   );
   Text selectedMonth = Text(
     "${DateTime.now().month}",
-    style: const TextStyle(fontSize: 18),
+    style: const TextStyle(fontSize: 16),
   );
   final list = [
     const Text(
-      'jan',
-      style: TextStyle(fontSize: 18),
+      '1',
+      style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'feb',
-      style: TextStyle(fontSize: 18),
+      '2',
+      style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'mar',
-      style: TextStyle(fontSize: 18),
+      '3',
+      style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'april',
-      style: TextStyle(fontSize: 18),
+      '4',
+      style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'may',
-      style: TextStyle(fontSize: 18),
+      '5',
+      style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'june',
-      style: TextStyle(fontSize: 18),
+      '6',
+      style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'july',
-      style: TextStyle(fontSize: 18),
+      '7',
+      style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'aug',
-      style: TextStyle(fontSize: 18),
+      '8',
+      style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'sep',
-      style: TextStyle(fontSize: 18),
+      '9',
+      style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'oct',
-      style: TextStyle(fontSize: 18),
+      '10',
+      style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'nov',
-      style: TextStyle(fontSize: 18),
+      '11',
+      style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'dec',
-      style: TextStyle(fontSize: 18),
+      '12',
+      style: TextStyle(fontSize: 16),
     ),
   ];
   selectMonth(context) async {
@@ -104,7 +103,7 @@ class _TransactionPageState extends State<TransactionPage> {
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        if (showMonth.data == ' -- ') {
+                        if (showMonth.data == 'Select Month') {
                           setState(() {
                             selectedMonth = list.elementAt(0);
                             showMonth = selectedMonth;
@@ -173,16 +172,23 @@ class _TransactionPageState extends State<TransactionPage> {
                   children: [
                     IconButton(
                         onPressed: () {
-                          selectMonth(context);
                           selectYear(context);
                         },
                         icon: const Icon(Icons.calendar_month)),
-                    showMonth,
-                    Text(' '),
                     Text(
                       showYear,
-                      style: const TextStyle(fontSize: 18),
+                      style: const TextStyle(fontSize: 16),
                     ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          selectMonth(context);
+                        },
+                        icon: const Icon(Icons.calendar_month)),
+                    showMonth,
                   ],
                 ),
                 IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
