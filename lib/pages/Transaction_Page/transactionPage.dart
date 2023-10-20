@@ -1,15 +1,20 @@
 // ignore_for_file: file_names
+import 'dart:ffi';
+
 import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/Expanses.dart';
 import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/Income.dart';
 import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/all.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-DateTime selectedYear = DateTime.now();
+int selectedYear = DateTime.now().year;
+Text selectedMonth = Text(
+  "${DateTime.now().month}",
+  style: const TextStyle(fontSize: 16),
+);
 
 class TransactionPage extends StatefulWidget {
   const TransactionPage({super.key});
-
   @override
   State<StatefulWidget> createState() {
     return _TransactionPageState();
@@ -17,15 +22,11 @@ class TransactionPage extends StatefulWidget {
 }
 
 class _TransactionPageState extends State<TransactionPage> {
-  String showYear = 'Select Year';
+  String showYear = 'SY';
 
   Text showMonth = const Text(
     'Select Month',
     style: TextStyle(fontSize: 16),
-  );
-  Text selectedMonth = Text(
-    "${DateTime.now().month}",
-    style: const TextStyle(fontSize: 16),
   );
   final list = [
     const Text(
@@ -124,7 +125,7 @@ class _TransactionPageState extends State<TransactionPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Select Year'),
+          title: const Text('SY'),
           content: SizedBox(
             width: 300,
             height: 300,
@@ -132,12 +133,13 @@ class _TransactionPageState extends State<TransactionPage> {
               firstDate: DateTime(DateTime.now().year - 10, 1),
               lastDate: DateTime.now(),
               initialDate: DateTime.now(),
-              selectedDate: selectedYear,
+              selectedDate: DateTime(selectedYear),
               onChanged: (DateTime dateTime) {
                 setState(
                   () {
-                    selectedYear = dateTime;
+                    selectedYear = dateTime.year;
                     showYear = "${dateTime.year}";
+                    selectedyear = selectedYear;
                   },
                 );
                 Navigator.pop(context);
@@ -151,73 +153,62 @@ class _TransactionPageState extends State<TransactionPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(useMaterial3: true).copyWith(
-          appBarTheme:
-              const AppBarTheme(color: Color.fromARGB(255, 58, 48, 55))),
-      home: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(Icons.arrow_back)),
-                Row(
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          selectYear(context);
-                        },
-                        icon: const Icon(Icons.calendar_month)),
-                    Text(
-                      showYear,
-                      style: const TextStyle(fontSize: 16),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          selectMonth(context);
-                        },
-                        icon: const Icon(Icons.calendar_month)),
-                    showMonth,
-                  ],
-                ),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
-              ],
-            ),
-            bottom: const TabBar(
-                indicatorColor: Colors.white38,
-                dividerColor: Colors.white24,
-                labelColor: Colors.white60,
-                unselectedLabelColor: Colors.white,
-                tabs: [
-                  Tab(
-                    text: 'ALL',
-                  ),
-                  Tab(
-                    text: 'EXPANCES',
-                  ),
-                  Tab(
-                    text: 'INCOME',
-                  )
-                ]),
-          ),
-          body: const TabBarView(
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Center(child: All()),
-              Center(child: Expanse()),
-              Center(child: Income()),
+              Row(
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        selectYear(context);
+                      },
+                      icon: const Icon(Icons.calendar_month)),
+                  Text(
+                    showYear,
+                    style: const TextStyle(fontSize: 16),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        selectMonth(context);
+                      },
+                      icon: const Icon(Icons.calendar_month)),
+                  showMonth,
+                ],
+              ),
+              IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
             ],
           ),
+          bottom: const TabBar(
+              indicatorColor: Colors.white38,
+              dividerColor: Colors.white24,
+              labelColor: Colors.white60,
+              unselectedLabelColor: Colors.white,
+              tabs: [
+                Tab(
+                  text: 'ALL',
+                ),
+                Tab(
+                  text: 'EXPANCES',
+                ),
+                Tab(
+                  text: 'INCOME',
+                )
+              ]),
+        ),
+        body: const TabBarView(
+          children: [
+            Center(child: All()),
+            Center(child: Expanse()),
+            Center(child: Income()),
+          ],
         ),
       ),
     );
