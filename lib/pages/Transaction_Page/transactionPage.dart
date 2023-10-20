@@ -5,6 +5,8 @@ import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+DateTime selectedYear = DateTime.now();
+
 class TransactionPage extends StatefulWidget {
   const TransactionPage({super.key});
 
@@ -150,7 +152,6 @@ class _TransactionPageState extends State<TransactionPage> {
 
   @override
   Widget build(BuildContext context) {
-    int index = 0;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(useMaterial3: true).copyWith(
@@ -187,15 +188,12 @@ class _TransactionPageState extends State<TransactionPage> {
                 IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
               ],
             ),
-            bottom: TabBar(
+            bottom: const TabBar(
                 indicatorColor: Colors.white38,
                 dividerColor: Colors.white24,
                 labelColor: Colors.white60,
                 unselectedLabelColor: Colors.white,
-                onTap: (value) {
-                  index = value;
-                },
-                tabs: const [
+                tabs: [
                   Tab(
                     text: 'ALL',
                   ),
