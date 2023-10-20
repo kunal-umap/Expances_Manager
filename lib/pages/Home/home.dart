@@ -47,7 +47,6 @@ class _bottom_barState extends State<Home> {
           ]),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       floatingActionButton: FloatingActionButton(
-        elevation: 10.0,
         foregroundColor: Colors.black,
         onPressed: () {
           Navigator.of(context).push(
