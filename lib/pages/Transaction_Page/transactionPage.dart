@@ -5,6 +5,8 @@ import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+DateTime selectedYear = DateTime.now();
+
 class TransactionPage extends StatefulWidget {
   const TransactionPage({super.key});
 
@@ -16,7 +18,6 @@ class TransactionPage extends StatefulWidget {
 
 class _TransactionPageState extends State<TransactionPage> {
   String showYear = 'Select Year';
-  DateTime selectedYear = DateTime.now();
 
   Text showMonth = const Text(
     'Select Month',
@@ -28,51 +29,51 @@ class _TransactionPageState extends State<TransactionPage> {
   );
   final list = [
     const Text(
-      'jan',
+      '1',
       style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'feb',
+      '2',
       style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'mar',
+      '3',
       style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'april',
+      '4',
       style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'may',
+      '5',
       style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'june',
+      '6',
       style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'july',
+      '7',
       style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'aug',
+      '8',
       style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'sep',
+      '9',
       style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'oct',
+      '10',
       style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'nov',
+      '11',
       style: TextStyle(fontSize: 16),
     ),
     const Text(
-      'dec',
+      '12',
       style: TextStyle(fontSize: 16),
     ),
   ];
@@ -150,7 +151,6 @@ class _TransactionPageState extends State<TransactionPage> {
 
   @override
   Widget build(BuildContext context) {
-    int index = 0;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(useMaterial3: true).copyWith(
@@ -194,15 +194,12 @@ class _TransactionPageState extends State<TransactionPage> {
                 IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
               ],
             ),
-            bottom: TabBar(
+            bottom: const TabBar(
                 indicatorColor: Colors.white38,
                 dividerColor: Colors.white24,
                 labelColor: Colors.white60,
                 unselectedLabelColor: Colors.white,
-                onTap: (value) {
-                  index = value;
-                },
-                tabs: const [
+                tabs: [
                   Tab(
                     text: 'ALL',
                   ),
