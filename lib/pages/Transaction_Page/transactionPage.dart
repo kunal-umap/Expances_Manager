@@ -1,17 +1,9 @@
-// ignore_for_file: file_names
-import 'dart:ffi';
-
+// ignore_for_file: file_names;
 import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/Expanses.dart';
 import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/Income.dart';
 import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/all.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-int selectedYear = DateTime.now().year;
-Text selectedMonth = Text(
-  "${DateTime.now().month}",
-  style: const TextStyle(fontSize: 16),
-);
 
 class TransactionPage extends StatefulWidget {
   const TransactionPage({super.key});
@@ -21,8 +13,14 @@ class TransactionPage extends StatefulWidget {
   }
 }
 
-class _TransactionPageState extends State<TransactionPage> {
+class _TransactionPageState extends State<TransactionPage>
+    with TickerProviderStateMixin {
   String showYear = 'SY';
+  int selectedYear = DateTime.now().year;
+  Text selectedMonth = Text(
+    "${DateTime.now().month}",
+    style: const TextStyle(fontSize: 16),
+  );
 
   Text showMonth = const Text(
     'Select Month',
@@ -139,7 +137,6 @@ class _TransactionPageState extends State<TransactionPage> {
                   () {
                     selectedYear = dateTime.year;
                     showYear = "${dateTime.year}";
-                    selectedyear = selectedYear;
                   },
                 );
                 Navigator.pop(context);
@@ -203,11 +200,20 @@ class _TransactionPageState extends State<TransactionPage> {
                 )
               ]),
         ),
-        body: const TabBarView(
+        body: TabBarView(
           children: [
-            Center(child: All()),
-            Center(child: Expanse()),
-            Center(child: Income()),
+            All(
+              selectedyear: selectedYear.toString(),
+              Selectedmonth: selectedMonth.data.toString(),
+            ),
+            Expanse(
+              Selectedyear: selectedYear.toString(),
+              Selectedmonth: selectedMonth.data.toString(),
+            ),
+            Income(
+              Selectedyear: selectedYear.toString(),
+              Selectedmonth: selectedMonth.data.toString(),
+            ),
           ],
         ),
       ),
