@@ -17,8 +17,9 @@ class _add_TransactionState extends State<add_Transaction> {
     "EXPENSE",
     "INCOME",
   ];
-  var listItemSelected = "EXPENSES";
-  var modechoose = " ";
+  var listItemSelected;
+  var modechoose;
+  var categorychooe;
   var modeItem = ["Online", "Cash"];
 
   final _categoryItem = [
@@ -68,7 +69,8 @@ class _add_TransactionState extends State<add_Transaction> {
                   SizedBox(
                     width: 250,
                     child: DropdownButton<String>(
-                        hint: const Text("Select Type"),
+                        hint: Text("Select type"),
+                        value: listItemSelected,
                         isExpanded: true,
                         items: _listItem.map((String dropDownStringItem) {
                           return DropdownMenuItem<String>(
@@ -98,7 +100,8 @@ class _add_TransactionState extends State<add_Transaction> {
                   SizedBox(
                     width: 250,
                     child: DropdownButton<String>(
-                        hint: const Text("Select Mode"),
+                        hint: Text("Select Mode"),
+                        value: modechoose,
                         isExpanded: true,
                         items: modeItem.map((String dropDownStringItem) {
                           return DropdownMenuItem<String>(
@@ -107,7 +110,9 @@ class _add_TransactionState extends State<add_Transaction> {
                           );
                         }).toList(),
                         onChanged: (newModeSelected) {
-                          setState(() {});
+                          setState(() {
+                            modechoose = newModeSelected!;
+                          });
                         }),
                   )
                 ],
@@ -143,6 +148,7 @@ class _add_TransactionState extends State<add_Transaction> {
                         dropdownColor: Colors.black,
                         isExpanded: true,
                         hint: const Text("Select Category"),
+                        value: categorychooe,
                         items: _categoryItem.map((dropDownStringItem) {
                           return DropdownMenuItem<String>(
                             value: dropDownStringItem,
@@ -151,7 +157,7 @@ class _add_TransactionState extends State<add_Transaction> {
                         }).toList(),
                         onChanged: (newValueSelected) {
                           setState(() {
-                            _listItem = newValueSelected as List<String>;
+                            categorychooe = newValueSelected!;
                           });
                         }),
                   )
@@ -173,11 +179,11 @@ class _add_TransactionState extends State<add_Transaction> {
                       ),
                     ),
                     SizedBox(
-                        width: 140,
-                        height: 35,
+                        width: 150,
+                        height: 50,
                         child: TextField(
                           keyboardType: TextInputType.none,
-                          style: const TextStyle(fontSize: 20),
+                          style: const TextStyle(fontSize: 16),
                           controller: _date,
                           decoration: const InputDecoration(
                             prefixIcon: Padding(
