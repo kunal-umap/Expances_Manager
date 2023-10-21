@@ -2,12 +2,17 @@ import 'package:expances_management/pages/Home/Home_Wedgets/Transection/Main_pag
 import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/all.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Expanse extends StatefulWidget {
+  // ignore: non_constant_identifier_names
   String Selectedyear;
+  // ignore: non_constant_identifier_names
   String Selectedmonth;
   Expanse({
     super.key,
+    // ignore: non_constant_identifier_names
     required this.Selectedyear,
+    // ignore: non_constant_identifier_names
     required this.Selectedmonth,
   });
 
@@ -30,9 +35,6 @@ class _Transaction_InfoState extends State<Expanse> {
                   return Center(child: Text(snapshot.error.toString()));
                 } else {
                   final data = snapshot.data!;
-                  if (snapshot.hasError) {
-                    return SizedBox();
-                  }
                   return ListView.builder(
                     itemCount:
                         data[widget.Selectedyear][widget.Selectedmonth].length,

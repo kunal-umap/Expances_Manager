@@ -14,11 +14,13 @@ Future<Map<String, dynamic>> readJson() async {
 // ignore: camel_case_types, must_be_immutable
 class All extends StatefulWidget {
   String selectedyear;
+  // ignore: non_constant_identifier_names
   String Selectedmonth;
 
   All({
     super.key,
     required this.selectedyear,
+    // ignore: non_constant_identifier_names
     required this.Selectedmonth,
   });
 
