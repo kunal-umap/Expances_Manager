@@ -4,11 +4,15 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class Income extends StatefulWidget {
+  // ignore: non_constant_identifier_names
   String Selectedyear;
+  // ignore: non_constant_identifier_names
   String Selectedmonth;
   Income({
     super.key,
+    // ignore: non_constant_identifier_names
     required this.Selectedyear,
+    // ignore: non_constant_identifier_names
     required this.Selectedmonth,
   });
 
