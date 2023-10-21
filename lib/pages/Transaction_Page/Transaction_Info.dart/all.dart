@@ -1,22 +1,26 @@
 import 'dart:convert';
 import 'package:expances_management/pages/Home/Home_Wedgets/Transection/Main_page.dart';
-import 'package:expances_management/pages/Transaction_Page/transactionPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-String? selectedmonth = selectedMonth.data;
-int selectedyear = selectedYear;
+int selectedmonth = DateTime.now().month;
+//int selectedyear = selectedYear;
 Future<Map<String, dynamic>> readJson() async {
   final response = await rootBundle.loadString('assects/data.json');
   final data = (jsonDecode(response));
-  print("$selectedyear");
-  print("$selectedYear");
   return data;
 }
 
-// ignore: camel_case_types
+// ignore: camel_case_types, must_be_immutable
 class All extends StatefulWidget {
-  const All({super.key});
+  String selectedyear;
+  String Selectedmonth;
+
+  All({
+    super.key,
+    required this.selectedyear,
+    required this.Selectedmonth,
+  });
 
   @override
   State<All> createState() => _Transaction_InfoState();
@@ -26,8 +30,6 @@ class All extends StatefulWidget {
 class _Transaction_InfoState extends State<All> {
   @override
   Widget build(BuildContext context) {
-    print("$selectedyear");
-    print("$selectedYear");
     return Scaffold(
       body: Column(
         children: [
@@ -40,17 +42,18 @@ class _Transaction_InfoState extends State<All> {
                 } else {
                   final data = snapshot.data!;
                   return ListView.builder(
-                    itemCount: data["$selectedyear"][selectedmonth].length,
+                    itemCount:
+                        data[widget.selectedyear][widget.Selectedmonth].length,
                     itemBuilder: (context, index) {
                       return Main_page(
-                          label: data["$selectedyear"][selectedmonth][index]
-                              ["description"],
-                          time: data["$selectedyear"][selectedmonth][index]
-                              ["date"],
+                          label: data[widget.selectedyear][widget.Selectedmonth]
+                              [index]["description"],
+                          time: data[widget.selectedyear][widget.Selectedmonth]
+                              [index]["date"],
                           icon: Icons.dinner_dining,
                           color: Colors.green,
-                          price: data["$selectedyear"][selectedmonth][index]
-                              ["amount"]);
+                          price: data[widget.selectedyear][widget.Selectedmonth]
+                              [index]["amount"]);
                     },
                   );
                 }

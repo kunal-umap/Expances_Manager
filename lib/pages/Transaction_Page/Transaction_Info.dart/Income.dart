@@ -2,8 +2,15 @@ import 'package:expances_management/pages/Home/Home_Wedgets/Transection/Main_pag
 import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/all.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Income extends StatefulWidget {
-  const Income({super.key});
+  String Selectedyear;
+  String Selectedmonth;
+  Income({
+    super.key,
+    required this.Selectedyear,
+    required this.Selectedmonth,
+  });
 
   @override
   State<Income> createState() => _Transaction_InfoState();
@@ -25,20 +32,21 @@ class _Transaction_InfoState extends State<Income> {
                 } else {
                   final data = snapshot.data!;
                   return ListView.builder(
-                    itemCount: data["$selectedyear"]["$selectedmonth"].length,
+                    itemCount:
+                        data[widget.Selectedyear][widget.Selectedmonth].length,
                     itemBuilder: (context, index) {
-                      if (data["$selectedyear"]["$selectedmonth"][index]
+                      if (data[widget.Selectedyear][widget.Selectedmonth][index]
                               ["type"] ==
                           "Income") {
                         return Main_page(
-                            label: data["$selectedyear"]["$selectedmonth"]
-                                [index]["description"],
-                            time: data["$selectedyear"]["$selectedmonth"][index]
-                                ["date"],
+                            label: data[widget.Selectedyear]
+                                [widget.Selectedmonth][index]["description"],
+                            time: data[widget.Selectedyear]
+                                [widget.Selectedmonth][index]["date"],
                             icon: Icons.dinner_dining,
                             color: Colors.green,
-                            price: data["$selectedyear"]["$selectedmonth"]
-                                [index]["amount"]);
+                            price: data[widget.Selectedyear]
+                                [widget.Selectedmonth][index]["amount"]);
                       }
                       return const SizedBox();
                     },
