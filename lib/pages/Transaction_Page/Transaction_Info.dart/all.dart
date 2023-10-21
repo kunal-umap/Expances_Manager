@@ -16,7 +16,6 @@ class All extends StatefulWidget {
   String selectedyear;
   // ignore: non_constant_identifier_names
   String Selectedmonth;
-
   All({
     super.key,
     required this.selectedyear,
