@@ -36,45 +36,13 @@ class PieChartKuState extends State<PieChartKu> {
                         data: widget.data
                     ),
                   ),
-                  // Indicator(
-                  //   color: Colors.blue,
-                  //   text: 'First',
-                  //   isSquare: true,
-                  // ),
-                  // SizedBox(
-                  //   height: 4,
-                  // ),
-                  // Indicator(
-                  //   color: Colors.amber,
-                  //   text: 'Second',
-                  //   isSquare: true,
-                  // ),
-                  // SizedBox(
-                  //   height: 4,
-                  // ),
-                  // Indicator(
-                  //   color: Colors.deepPurple,
-                  //   text: 'Third',
-                  //   isSquare: true,
-                  // ),
-                  // SizedBox(
-                  //   height: 4,
-                  // ),
-                  // Indicator(
-                  //   color: Colors.green,
-                  //   text: 'Fourth',
-                  //   isSquare: true,
-                  // ),
-                  // SizedBox(
-                  //   height: 18,
-                  // ),
                 ],
               ),
             ),
           ],
         ),
         AspectRatio(
-          aspectRatio: 1.15,
+          aspectRatio: 1.2,
           child: PieChart(
             PieChartData(
               pieTouchData: PieTouchData(
@@ -100,57 +68,6 @@ class PieChartKuState extends State<PieChartKu> {
             ),
           ),
         ),
-<<<<<<< HEAD
-
-=======
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 22, 0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  DataName(data: widget.data),
-                  // const Indicator(
-                  //   color: Colors.blue,
-                  //   text: 'First',
-                  //   isSquare: true,
-                  // ),
-                  // const SizedBox(
-                  //   height: 4,
-                  // ),
-                  // const Indicator(
-                  //   color: Colors.amber,
-                  //   text: 'Second',
-                  //   isSquare: true,
-                  // ),
-                  // const SizedBox(
-                  //   height: 4,
-                  // ),
-                  // const Indicator(
-                  //   color: Colors.deepPurple,
-                  //   text: 'Third',
-                  //   isSquare: true,
-                  // ),
-                  // const SizedBox(
-                  //   height: 4,
-                  // ),
-                  // const Indicator(
-                  //   color: Colors.green,
-                  //   text: 'Fourth',
-                  //   isSquare: true,
-                  // ),
-                  // const SizedBox(
-                  //   height: 18,
-                  // ),
-                ],
-              ),
-            ),
-          ],
-        ),
->>>>>>> 02ce06fadd37b44ddced30cd85e57e33568360bf
       ],
     );
   }
@@ -168,17 +85,13 @@ class PieChartKuState extends State<PieChartKu> {
       }
       total += int.parse(data[i]['amount']);
     }
-<<<<<<< HEAD
     heig = name.length;
-    List col = [Colors.greenAccent,Colors.blueAccent,Colors.pinkAccent,Colors.purpleAccent];
-=======
     List col = [
       Colors.greenAccent,
       Colors.blueAccent,
       Colors.pinkAccent,
       Colors.purpleAccent
     ];
->>>>>>> 02ce06fadd37b44ddced30cd85e57e33568360bf
 
     return List.generate(category.length, (i) {
       final isTouched = i == touchedIndex;
