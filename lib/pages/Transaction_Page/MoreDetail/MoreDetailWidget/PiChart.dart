@@ -16,13 +16,67 @@ class PieChartKu extends StatefulWidget {
 }
 
 class PieChartKuState extends State<PieChartKu> {
+  int heig = 1;
   int touchedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(22, 12, 22, 8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: double.parse((35*heig).toString()),
+                    width: 200,
+                    child: DataName(
+                        data: widget.data
+                    ),
+                  ),
+                  // Indicator(
+                  //   color: Colors.blue,
+                  //   text: 'First',
+                  //   isSquare: true,
+                  // ),
+                  // SizedBox(
+                  //   height: 4,
+                  // ),
+                  // Indicator(
+                  //   color: Colors.amber,
+                  //   text: 'Second',
+                  //   isSquare: true,
+                  // ),
+                  // SizedBox(
+                  //   height: 4,
+                  // ),
+                  // Indicator(
+                  //   color: Colors.deepPurple,
+                  //   text: 'Third',
+                  //   isSquare: true,
+                  // ),
+                  // SizedBox(
+                  //   height: 4,
+                  // ),
+                  // Indicator(
+                  //   color: Colors.green,
+                  //   text: 'Fourth',
+                  //   isSquare: true,
+                  // ),
+                  // SizedBox(
+                  //   height: 18,
+                  // ),
+                ],
+              ),
+            ),
+          ],
+        ),
         AspectRatio(
-          aspectRatio: 1.25,
+          aspectRatio: 1.15,
           child: PieChart(
             PieChartData(
               pieTouchData: PieTouchData(
@@ -48,55 +102,7 @@ class PieChartKuState extends State<PieChartKu> {
             ),
           ),
         ),
-        const Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: EdgeInsets.fromLTRB(8, 0, 22, 0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // DataName(
-                  //     data: widget.data
-                  // ),
-                  Indicator(
-                    color: Colors.blue,
-                    text: 'First',
-                    isSquare: true,
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Indicator(
-                    color: Colors.amber,
-                    text: 'Second',
-                    isSquare: true,
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Indicator(
-                    color: Colors.deepPurple,
-                    text: 'Third',
-                    isSquare: true,
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Indicator(
-                    color: Colors.green,
-                    text: 'Fourth',
-                    isSquare: true,
-                  ),
-                  SizedBox(
-                    height: 18,
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+
       ],
     );
   }
@@ -114,6 +120,7 @@ class PieChartKuState extends State<PieChartKu> {
         }
         total += int.parse(data[i]['amount']);
     }
+    heig = name.length;
     List col = [Colors.greenAccent,Colors.blueAccent,Colors.pinkAccent,Colors.purpleAccent];
 
     return List.generate(category.length, (i) {

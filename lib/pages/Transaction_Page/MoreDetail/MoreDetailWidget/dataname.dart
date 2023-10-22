@@ -1,3 +1,4 @@
+
 import 'package:expances_management/Pages/Transaction_Page/MoreDetail/MoreDetailWidget/indicator.dart';
 import 'package:flutter/material.dart';
 
@@ -20,13 +21,16 @@ class DataName extends StatelessWidget {
     List col = [Colors.greenAccent,Colors.blueAccent,Colors.pinkAccent,Colors.purpleAccent];
 
     return ListView.builder(
-        itemBuilder: (context,index) {
-          return const Indicator(
-            color: Colors.amber,
-            text: 'Second',
-            isSquare: true,
-          );
-        }
+
+      shrinkWrap: true,
+      itemCount: name.length,
+      itemBuilder: (context,index) {
+        return  Indicator(
+          color: col[index],
+          text: name[index],
+          isSquare: true,
+        );
+      }
     );
 
   }
