@@ -21,43 +21,23 @@ class _bottom_barState extends State<Home> {
     return Scaffold(
       appBar: homeTopBar(),
       drawer: topBarMenu(),
-      body: SingleChildScrollView(
-        child: IndexedStack(
-          index: currentPage,
-          children: pages,
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          showUnselectedLabels: false,
-          onTap: (index) {
-            setState(() {
-              currentPage = index;
-            });
-          },
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.request_page),
-              label: "Transaction",
-            ),
-          ]),
+      body: const Transection(),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
-      floatingActionButton: FloatingActionButton(
-        foregroundColor: Colors.black,
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => const add_Transaction(),
-            ),
-          );
-        },
-        backgroundColor: const Color.fromARGB(255, 160, 25, 184),
-        shape: const CircleBorder(),
-        child: const Icon(Icons.add),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(16),
+        child: FloatingActionButton(
+          foregroundColor: Colors.black,
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const add_Transaction(),
+              ),
+            );
+          },
+          backgroundColor: const Color.fromARGB(255, 160, 25, 184),
+          shape: const CircleBorder(),
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
