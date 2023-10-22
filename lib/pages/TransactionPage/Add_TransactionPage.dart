@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:expances_management/pages/Home/home.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 
 // ignore: camel_case_types
@@ -21,13 +22,7 @@ class _add_TransactionState extends State<add_Transaction> {
   var modechoose = " ";
   var modeItem = ["Online", "Cash"];
 
-  final _categoryItem = [
-    (" Eat"),
-    ("Bill"),
-    ("Education"),
-    ("EMI"),
-    ("Gadget")
-  ];
+  final _categoryItem = [("Eat"), ("Bill"), ("Education"), ("EMI"), ("Gadget")];
   TextEditingController _date = TextEditingController();
 
   @override

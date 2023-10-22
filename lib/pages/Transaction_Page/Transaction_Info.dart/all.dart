@@ -3,8 +3,6 @@ import 'package:expances_management/pages/Home/Home_Wedgets/Transection/Main_pag
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-int selectedmonth = DateTime.now().month;
-//int selectedyear = selectedYear;
 Future<Map<String, dynamic>> readJson() async {
   final response = await rootBundle.loadString('assects/data.json');
   final data = (jsonDecode(response));
@@ -42,19 +40,31 @@ class _Transaction_InfoState extends State<All> {
                   return Center(child: Text(snapshot.error.toString()));
                 } else {
                   final data = snapshot.data!;
+                  if (data[widget.selectedyear] == null) {
+                    return const SizedBox();
+                  } else if (data[widget.selectedyear][widget.Selectedmonth] ==
+                      null) {
+                    return const SizedBox();
+                  }
                   return ListView.builder(
                     itemCount:
                         data[widget.selectedyear][widget.Selectedmonth].length,
                     itemBuilder: (context, index) {
                       return Main_page(
-                          label: data[widget.selectedyear][widget.Selectedmonth]
-                              [index]["description"],
-                          time: data[widget.selectedyear][widget.Selectedmonth]
-                              [index]["date"],
-                          icon: Icons.dinner_dining,
-                          color: Colors.green,
-                          price: data[widget.selectedyear][widget.Selectedmonth]
-                              [index]["amount"]);
+                        label: data[widget.selectedyear][widget.Selectedmonth]
+                            [index]["description"],
+                        time: data[widget.selectedyear][widget.Selectedmonth]
+                            [index]["date"],
+                        icon: Icons.dinner_dining,
+                        color: Colors.green,
+                        price: data[widget.selectedyear][widget.Selectedmonth]
+                            [index]["amount"],
+                        color1: data[widget.selectedyear][widget.Selectedmonth]
+                                    [index]["type"] ==
+                                "Expenses"
+                            ? const Color.fromARGB(255, 255, 17, 0)
+                            : Colors.green,
+                      );
                     },
                   );
                 }

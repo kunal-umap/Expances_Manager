@@ -8,6 +8,7 @@ class Main_page extends StatefulWidget {
   IconData icon;
   Color color;
   String price;
+  Color color1;
   Main_page({
     super.key,
     required this.label,
@@ -15,6 +16,7 @@ class Main_page extends StatefulWidget {
     required this.icon,
     required this.color,
     required this.price,
+    required this.color1,
   });
   @override
   State<Main_page> createState() => _Main_pageState();
@@ -61,9 +63,10 @@ class _Main_pageState extends State<Main_page> {
               const Spacer(),
               Text(
                 widget.price,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
+                  color: widget.color1,
                 ),
               ),
             ],

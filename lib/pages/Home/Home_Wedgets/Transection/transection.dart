@@ -50,6 +50,13 @@ class _TransectionState extends State<Transection> {
                   return Center(child: Text(snapshot.error.toString()));
                 } else {
                   final data = snapshot.data!;
+                  while (data["$selectedyear"]["$selectedmonth"] == null) {
+                    if (selectedmonth != 1) {
+                      selectedmonth--;
+                    } else {
+                      selectedyear--;
+                    }
+                  }
                   return ListView.builder(
                     itemCount: data["$selectedyear"]["$selectedmonth"].length,
                     itemBuilder: (context, index) {
@@ -63,6 +70,11 @@ class _TransectionState extends State<Transection> {
                           color: Colors.green,
                           price: data["$selectedyear"]["$selectedmonth"][index]
                               ["amount"],
+                          color1: data["$selectedyear"]["$selectedmonth"][index]
+                                      ["type"] ==
+                                  "Expenses"
+                              ? const Color.fromARGB(255, 255, 17, 0)
+                              : Colors.green,
                         );
                       }
                       return const SizedBox();
