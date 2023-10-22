@@ -63,6 +63,11 @@ class _TransectionState extends State<Transection> {
                           color: Colors.green,
                           price: data["$selectedyear"]["$selectedmonth"][index]
                               ["amount"],
+                          color1: data["$selectedyear"]["$selectedmonth"][index]
+                                      ["type"] ==
+                                  "Expenses"
+                              ? const Color.fromARGB(255, 255, 17, 0)
+                              : Colors.green,
                         );
                       }
                       return const SizedBox();

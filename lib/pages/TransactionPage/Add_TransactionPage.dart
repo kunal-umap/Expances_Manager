@@ -21,13 +21,7 @@ class _add_TransactionState extends State<add_Transaction> {
   var modechoose = " ";
   var modeItem = ["Online", "Cash"];
 
-  final _categoryItem = [
-    (" Eat"),
-    ("Bill"),
-    ("Education"),
-    ("EMI"),
-    ("Gadget")
-  ];
+  final _categoryItem = [("Eat"), ("Bill"), ("Education"), ("EMI"), ("Gadget")];
   TextEditingController _date = TextEditingController();
 
   @override

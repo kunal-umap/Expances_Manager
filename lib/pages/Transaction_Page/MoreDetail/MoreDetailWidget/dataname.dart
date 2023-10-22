@@ -7,27 +7,36 @@ class DataName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(data);
     final category = {};
     List name = [];
-    for(int i = 0;i<data.length;i++){
-      if(category[data[i]['category']] != null){
-        category[data[i]['category']] +=  int.parse(data[i]['amount']);
-      }else {
+    for (int i = 0; i < data.length; i++) {
+      if (category[data[i]['category']] != null) {
+        category[data[i]['category']] += int.parse(data[i]['amount']);
+      } else {
         name.add(data[i]['category']);
         category[data[i]['category']] = int.parse(data[i]['amount']);
       }
     }
-    List col = [Colors.greenAccent,Colors.blueAccent,Colors.pinkAccent,Colors.purpleAccent];
+    List col = [
+      Colors.greenAccent,
+      Colors.blueAccent,
+      Colors.pinkAccent,
+      Colors.purpleAccent
+    ];
 
-    return ListView.builder(
-        itemBuilder: (context,index) {
-          return const Indicator(
-            color: Colors.amber,
-            text: 'Second',
-            isSquare: true,
-          );
-        }
+    return Scaffold(
+      body: Expanded(
+        child: ListView.builder(
+            itemCount: 1,
+            itemBuilder: (context, index) {
+              return const Indicator(
+                color: Colors.amber,
+                text: 'Second',
+                isSquare: true,
+              );
+            }),
+      ),
     );
-
   }
 }

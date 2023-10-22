@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:expances_management/pages/Home/home.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 
 // ignore: camel_case_types
@@ -13,12 +14,15 @@ class add_Transaction extends StatefulWidget {
 
 // ignore: camel_case_types
 class _add_TransactionState extends State<add_Transaction> {
-  late var _listItem = [
+  late final _listItem = [
     "EXPENSE",
     "INCOME",
   ];
+  // ignore: prefer_typing_uninitialized_variables
   var listItemSelected;
+  // ignore: prefer_typing_uninitialized_variables
   var modechoose;
+  // ignore: prefer_typing_uninitialized_variables
   var categorychooe;
   var modeItem = ["Online", "Cash"];
 
@@ -29,7 +33,7 @@ class _add_TransactionState extends State<add_Transaction> {
     ("EMI"),
     ("Gadget")
   ];
-  TextEditingController _date = TextEditingController();
+  final TextEditingController _date = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +73,7 @@ class _add_TransactionState extends State<add_Transaction> {
                   SizedBox(
                     width: 250,
                     child: DropdownButton<String>(
-                        hint: Text("Select type"),
+                        hint: const Text("Select type"),
                         value: listItemSelected,
                         isExpanded: true,
                         items: _listItem.map((String dropDownStringItem) {
@@ -100,7 +104,7 @@ class _add_TransactionState extends State<add_Transaction> {
                   SizedBox(
                     width: 250,
                     child: DropdownButton<String>(
-                        hint: Text("Select Mode"),
+                        hint: const Text("Select Mode"),
                         value: modechoose,
                         isExpanded: true,
                         items: modeItem.map((String dropDownStringItem) {
