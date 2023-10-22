@@ -69,10 +69,6 @@ class _DetailGraphState extends State<DetailGraph> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-        },
-      ),
     );
   }
 
