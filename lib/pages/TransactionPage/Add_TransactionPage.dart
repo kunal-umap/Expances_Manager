@@ -1,6 +1,7 @@
 // ignore: file_names
 import 'package:expances_management/pages/Home/home.dart';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 
 // ignore: camel_case_types

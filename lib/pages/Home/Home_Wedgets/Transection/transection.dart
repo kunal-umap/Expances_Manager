@@ -50,6 +50,13 @@ class _TransectionState extends State<Transection> {
                   return Center(child: Text(snapshot.error.toString()));
                 } else {
                   final data = snapshot.data!;
+                  while (data["$selectedyear"]["$selectedmonth"] == null) {
+                    if (selectedmonth != 1) {
+                      selectedmonth--;
+                    } else {
+                      selectedyear--;
+                    }
+                  }
                   return ListView.builder(
                     itemCount: data["$selectedyear"]["$selectedmonth"].length,
                     itemBuilder: (context, index) {
