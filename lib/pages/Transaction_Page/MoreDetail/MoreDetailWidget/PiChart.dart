@@ -1,9 +1,7 @@
-import 'dart:ffi';
-import 'package:expances_management/Pages/Transaction_Page/MoreDetail/MoreDetailWidget/dataname.dart';
+import 'package:expances_management/pages/Transaction_Page/MoreDetail/MoreDetailWidget/dataname.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'indicator.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 class PieChartKu extends StatefulWidget {
   final data;
@@ -34,8 +32,8 @@ class PieChartKuState extends State<PieChartKu> {
                       touchedIndex = -1;
                       return;
                     }
-                    touchedIndex = pieTouchResponse
-                        .touchedSection!.touchedSectionIndex;
+                    touchedIndex =
+                        pieTouchResponse.touchedSection!.touchedSectionIndex;
                   });
                 },
               ),
@@ -48,50 +46,48 @@ class PieChartKuState extends State<PieChartKu> {
             ),
           ),
         ),
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: EdgeInsets.fromLTRB(8, 0, 22, 0),
+              padding: const EdgeInsets.fromLTRB(8, 0, 22, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // DataName(
-                  //     data: widget.data
+                  DataName(data: widget.data),
+                  // const Indicator(
+                  //   color: Colors.blue,
+                  //   text: 'First',
+                  //   isSquare: true,
                   // ),
-                  Indicator(
-                    color: Colors.blue,
-                    text: 'First',
-                    isSquare: true,
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Indicator(
-                    color: Colors.amber,
-                    text: 'Second',
-                    isSquare: true,
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Indicator(
-                    color: Colors.deepPurple,
-                    text: 'Third',
-                    isSquare: true,
-                  ),
-                  SizedBox(
-                    height: 4,
-                  ),
-                  Indicator(
-                    color: Colors.green,
-                    text: 'Fourth',
-                    isSquare: true,
-                  ),
-                  SizedBox(
-                    height: 18,
-                  ),
+                  // const SizedBox(
+                  //   height: 4,
+                  // ),
+                  // const Indicator(
+                  //   color: Colors.amber,
+                  //   text: 'Second',
+                  //   isSquare: true,
+                  // ),
+                  // const SizedBox(
+                  //   height: 4,
+                  // ),
+                  // const Indicator(
+                  //   color: Colors.deepPurple,
+                  //   text: 'Third',
+                  //   isSquare: true,
+                  // ),
+                  // const SizedBox(
+                  //   height: 4,
+                  // ),
+                  // const Indicator(
+                  //   color: Colors.green,
+                  //   text: 'Fourth',
+                  //   isSquare: true,
+                  // ),
+                  // const SizedBox(
+                  //   height: 18,
+                  // ),
                 ],
               ),
             ),
@@ -105,16 +101,21 @@ class PieChartKuState extends State<PieChartKu> {
     final category = {};
     int total = 0;
     List name = [];
-    for(int i = 0;i<data.length;i++){
-        if(category[data[i]['category']] != null){
-          category[data[i]['category']] +=  int.parse(data[i]['amount']);
-        }else {
-          name.add(data[i]['category']);
-          category[data[i]['category']] = int.parse(data[i]['amount']);
-        }
-        total += int.parse(data[i]['amount']);
+    for (int i = 0; i < data.length; i++) {
+      if (category[data[i]['category']] != null) {
+        category[data[i]['category']] += int.parse(data[i]['amount']);
+      } else {
+        name.add(data[i]['category']);
+        category[data[i]['category']] = int.parse(data[i]['amount']);
+      }
+      total += int.parse(data[i]['amount']);
     }
-    List col = [Colors.greenAccent,Colors.blueAccent,Colors.pinkAccent,Colors.purpleAccent];
+    List col = [
+      Colors.greenAccent,
+      Colors.blueAccent,
+      Colors.pinkAccent,
+      Colors.purpleAccent
+    ];
 
     return List.generate(category.length, (i) {
       final isTouched = i == touchedIndex;
@@ -125,14 +126,11 @@ class PieChartKuState extends State<PieChartKu> {
       return PieChartSectionData(
         color: col[i],
         value: val,
-        title: '${(val*100/total).round()}%',
+        title: '${(val * 100 / total).round()}%',
         titlePositionPercentageOffset: 0.80,
         badgeWidget: Text(
           name[i],
-          style: const TextStyle(
-              fontSize: 12,
-              color: Colors.white70
-          ),
+          style: const TextStyle(fontSize: 12, color: Colors.white70),
         ),
         badgePositionPercentageOffset: 1.32,
         radius: radius,
@@ -143,9 +141,6 @@ class PieChartKuState extends State<PieChartKu> {
           shadows: shadows,
         ),
       );
-
     });
-
   }
-
 }
