@@ -50,12 +50,33 @@ class _Transaction_InfoState extends State<All> {
                     itemCount:
                         data[widget.selectedyear][widget.Selectedmonth].length,
                     itemBuilder: (context, index) {
+                      var Category = data[widget.selectedyear]
+                          [widget.Selectedmonth][index]["category"];
+                      IconData icon = Icons.shopping_cart_outlined;
+                      ["category"];
+                      switch (Category) {
+                        case "Eat":
+                          icon = Icons.food_bank_outlined;
+                          break;
+                        case "Bill":
+                          icon = Icons.blinds_closed;
+                          break;
+                        case "Emi":
+                          icon = Icons.account_balance_wallet_outlined;
+                          break;
+                        case "Education":
+                          icon = Icons.cast_for_education;
+                          break;
+                        case "Gadget":
+                          icon = Icons.add_sharp;
+                          break;
+                      }
                       return Main_page(
                         label: data[widget.selectedyear][widget.Selectedmonth]
                             [index]["description"],
                         time: data[widget.selectedyear][widget.Selectedmonth]
                             [index]["date"],
-                        icon: Icons.dinner_dining,
+                        icon: icon,
                         color: Colors.green,
                         price: data[widget.selectedyear][widget.Selectedmonth]
                             [index]["amount"],

@@ -61,12 +61,33 @@ class _TransectionState extends State<Transection> {
                     itemCount: data["$selectedyear"]["$selectedmonth"].length,
                     itemBuilder: (context, index) {
                       if (index < 3) {
+                        var Category = data["$selectedyear"]["$selectedmonth"]
+                            [index]["category"];
+                        IconData icon = Icons.shopping_cart_outlined;
+                        ["category"];
+                        switch (Category) {
+                          case "Eat":
+                            icon = Icons.food_bank_outlined;
+                            break;
+                          case "Bill":
+                            icon = Icons.blinds_closed;
+                            break;
+                          case "Emi":
+                            icon = Icons.account_balance_wallet_outlined;
+                            break;
+                          case "Education":
+                            icon = Icons.cast_for_education;
+                            break;
+                          case "Gadget":
+                            icon = Icons.add_sharp;
+                            break;
+                        }
                         return Main_page(
                           label: data["$selectedyear"]["$selectedmonth"][index]
                               ["description"],
                           time: data["$selectedyear"]["$selectedmonth"][index]
                               ["date"],
-                          icon: Icons.dinner_dining,
+                          icon: icon,
                           color: Colors.green,
                           price: data["$selectedyear"]["$selectedmonth"][index]
                               ["amount"],
