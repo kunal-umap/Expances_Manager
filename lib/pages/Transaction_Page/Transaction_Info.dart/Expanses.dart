@@ -48,22 +48,27 @@ class _Transaction_InfoState extends State<Expanse> {
                       var Category = data[widget.Selectedyear]
                           [widget.Selectedmonth][index]["category"];
                       IconData icon = Icons.shopping_cart_outlined;
-                      ["category"];
+                      Color color = Colors.green;
                       switch (Category) {
                         case "Eat":
                           icon = Icons.food_bank_outlined;
+                          color = Colors.blue;
                           break;
                         case "Bill":
                           icon = Icons.blinds_closed;
+                          color = Colors.red;
                           break;
                         case "Emi":
                           icon = Icons.account_balance_wallet_outlined;
+                          color = Colors.amber;
                           break;
                         case "Education":
                           icon = Icons.cast_for_education;
+                          color = Colors.purple;
                           break;
                         case "Gadget":
                           icon = Icons.add_sharp;
+                          color = Colors.white;
                           break;
                       }
                       if (data[widget.Selectedyear][widget.Selectedmonth][index]
@@ -75,7 +80,7 @@ class _Transaction_InfoState extends State<Expanse> {
                           time: data[widget.Selectedyear][widget.Selectedmonth]
                               [index]["date"],
                           icon: icon,
-                          color: Colors.green,
+                          color: color,
                           price: data[widget.Selectedyear][widget.Selectedmonth]
                               [index]["amount"],
                           color1: data[widget.Selectedyear]

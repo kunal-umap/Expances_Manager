@@ -4,7 +4,7 @@
       {
         "description": "Samosa",
         "mode": "Online",
-        "category": "DINE",
+        "category": "Eat",
         "date": "24-09-2023",
         "amount": "50",
         "type": "Expenses"
@@ -12,7 +12,7 @@
       {
         "description": "Taxi",
         "mode": "Online",
-        "category": "TRAVEL",
+        "category": "Bill",
         "date": "23-09-2023",
         "amount": "100",
         "type": "Expenses"
@@ -20,7 +20,7 @@
       {
         "description": "D-mart & Cloths",
         "mode": "Online",
-        "category": "SHOPPING",
+        "category": "Gadget",
         "date": "22-09-2023",
         "amount": "1000",
         "type": "Expenses"
@@ -28,7 +28,7 @@
       {
         "description": "Intern",
         "mode": "Online",
-        "category": "OTHER",
+        "category": "Education",
         "date": "22-09-2023",
         "amount": "1000",
         "type": "Income"
@@ -38,7 +38,7 @@
       {
         "description": "Samosa",
         "mode": "Online",
-        "category": "DINE",
+        "category": "Eat",
         "date": "24-09-2023",
         "amount": "50",
         "type": "Expenses"
@@ -46,7 +46,7 @@
       {
         "description": "Taxi",
         "mode": "Online",
-        "category": "TRAVEL",
+        "category": "Bill",
         "date": "23-09-2023",
         "amount": "100",
         "type": "Expenses"
@@ -54,7 +54,7 @@
       {
         "description": "D-mart & Cloths",
         "mode": "Online",
-        "category": "SHOPPING",
+        "category": "Gadget",
         "date": "22-09-2023",
         "amount": "1000",
         "type": "Expenses"
@@ -62,7 +62,7 @@
       {
         "description": "Internship",
         "mode": "Online",
-        "category": "OTHER",
+        "category": "Education",
         "date": "22-09-2023",
         "amount": "1000",
         "type": "Income"
@@ -108,7 +108,7 @@
       {
         "description": "Samosa",
         "mode": "Online",
-        "category": "DINE",
+        "category": "Eat",
         "date": "24-09-2023",
         "amount": "50",
         "type": "Expenses"
@@ -116,7 +116,7 @@
       {
         "description": "Taxi",
         "mode": "Online",
-        "category": "TRAVEL",
+        "category": "Bill",
         "date": "23-09-2023",
         "amount": "100",
         "type": "Income"
@@ -124,7 +124,7 @@
       {
         "description": "D-mart & Cloths",
         "mode": "Online",
-        "category": "SHOPPING",
+        "category": "Gadget",
         "date": "22-09-2023",
         "amount": "1000",
         "type": "Expenses"
@@ -132,7 +132,7 @@
       {
         "description": "Internship",
         "mode": "Online",
-        "category": "OTHER",
+        "category": "Education",
         "date": "22-09-2023",
         "amount": "1000",
         "type": "Income"
@@ -142,7 +142,7 @@
       {
         "description": "Kachori",
         "mode": "Online",
-        "category": "DINE",
+        "category": "Eat",
         "date": "24-09-2023",
         "amount": "50",
         "type": "Expenses"
@@ -150,7 +150,7 @@
       {
         "description": "Kapil paise",
         "mode": "Online",
-        "category": "TRAVEL",
+        "category": "Bill",
         "date": "23-09-2023",
         "amount": "100",
         "type": "Income"
@@ -158,7 +158,7 @@
       {
         "description": "D-mart & Cloths",
         "mode": "Online",
-        "category": "SHOPPING",
+        "category": "Gadget",
         "date": "22-09-2023",
         "amount": "1000",
         "type": "Expenses"
@@ -166,14 +166,11 @@
       {
         "description": "Internship",
         "mode": "Online",
-        "category": "OTHER",
+        "category": "Education",
         "date": "22-09-2023",
         "amount": "1000",
         "type": "Income"
       }
-    ],
-    "11": [
-
     ]
   }
 }
