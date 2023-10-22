@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 
+String listItemSelected = "EXPENSES";
+var modechoose = " ";
+var modeItem = ["Online", "Cash"];
+
 // ignore: camel_case_types
 class add_Transaction extends StatefulWidget {
   const add_Transaction({super.key});
@@ -18,9 +22,6 @@ class _add_TransactionState extends State<add_Transaction> {
     "EXPENSE",
     "INCOME",
   ];
-  String listItemSelected = "EXPENSES";
-  var modechoose = " ";
-  var modeItem = ["Online", "Cash"];
 
   final _categoryItem = [("Eat"), ("Bill"), ("Education"), ("EMI"), ("Gadget")];
   TextEditingController _date = TextEditingController();

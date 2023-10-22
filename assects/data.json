@@ -72,7 +72,7 @@
       {
         "description": "Delivery",
         "mode": "Offline",
-        "category": "Flipkart",
+        "category": "Gadget",
         "date": "24-09-2023",
         "amount": "1000",
         "type": "Expenses"
@@ -80,7 +80,7 @@
       {
         "description": "Taxi",
         "mode": "Online",
-        "category": "TRAVEL",
+        "category": "Bill",
         "date": "23-09-2023",
         "amount": "2000",
         "type": "Expenses"
@@ -88,7 +88,7 @@
       {
         "description": "D-mart & Cloths",
         "mode": "Online",
-        "category": "SHOPPING",
+        "category": "Emi",
         "date": "22-09-2023",
         "amount": "1000",
         "type": "Income"
@@ -96,7 +96,7 @@
       {
         "description": "Internship",
         "mode": "Online",
-        "category": "OTHER",
+        "category": "Education",
         "date": "22-09-2023",
         "amount": "1000",
         "type": "Income"
