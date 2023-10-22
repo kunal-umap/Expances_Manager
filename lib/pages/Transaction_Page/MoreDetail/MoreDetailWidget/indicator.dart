@@ -20,8 +20,8 @@ class Indicator extends StatelessWidget {
     return Row(
       children: <Widget>[
         Container(
-          width: size,
-          height: size,
+          width: 16,
+          height: 16,
           decoration: BoxDecoration(
             shape: isSquare ? BoxShape.rectangle : BoxShape.circle,
             color: color,

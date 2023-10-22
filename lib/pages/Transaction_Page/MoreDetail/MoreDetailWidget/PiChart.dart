@@ -14,85 +14,71 @@ class PieChartKu extends StatefulWidget {
 }
 
 class PieChartKuState extends State<PieChartKu> {
+  int heig = 1;
   int touchedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AspectRatio(
-          aspectRatio: 1.25,
-          child: PieChart(
-            PieChartData(
-              pieTouchData: PieTouchData(
-                touchCallback: (FlTouchEvent event, pieTouchResponse) {
-                  setState(() {
-                    if (!event.isInterestedForInteractions ||
-                        pieTouchResponse == null ||
-                        pieTouchResponse.touchedSection == null) {
-                      touchedIndex = -1;
-                      return;
-                    }
-                    touchedIndex =
-                        pieTouchResponse.touchedSection!.touchedSectionIndex;
-                  });
-                },
-              ),
-              borderData: FlBorderData(
-                show: false,
-              ),
-              sectionsSpace: 3,
-              centerSpaceRadius: 45,
-              sections: showingSections(widget.data),
+        if(widget.data == null)
+          const Text(
+              "No Data TO Show",
+            style: TextStyle(
+              fontSize: 22,
+              color: Colors.white70
             ),
           ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8, 0, 22, 0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  DataName(data: widget.data),
-                  // const Indicator(
-                  //   color: Colors.blue,
-                  //   text: 'First',
-                  //   isSquare: true,
-                  // ),
-                  // const SizedBox(
-                  //   height: 4,
-                  // ),
-                  // const Indicator(
-                  //   color: Colors.amber,
-                  //   text: 'Second',
-                  //   isSquare: true,
-                  // ),
-                  // const SizedBox(
-                  //   height: 4,
-                  // ),
-                  // const Indicator(
-                  //   color: Colors.deepPurple,
-                  //   text: 'Third',
-                  //   isSquare: true,
-                  // ),
-                  // const SizedBox(
-                  //   height: 4,
-                  // ),
-                  // const Indicator(
-                  //   color: Colors.green,
-                  //   text: 'Fourth',
-                  //   isSquare: true,
-                  // ),
-                  // const SizedBox(
-                  //   height: 18,
-                  // ),
-                ],
+        if(widget.data != null)
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(22, 12, 22, 8),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: double.parse((35*heig).toString()),
+                      width: 200,
+                      child: DataName(
+                          data: widget.data
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+
+        if(widget.data != null)
+          AspectRatio(
+            aspectRatio: 1.2,
+            child: PieChart(
+              PieChartData(
+                pieTouchData: PieTouchData(
+                  touchCallback: (FlTouchEvent event, pieTouchResponse) {
+                    setState(() {
+                      if (!event.isInterestedForInteractions ||
+                          pieTouchResponse == null ||
+                          pieTouchResponse.touchedSection == null) {
+                        touchedIndex = -1;
+                        return;
+                      }
+                      touchedIndex =
+                          pieTouchResponse.touchedSection!.touchedSectionIndex;
+                    });
+                  },
+                ),
+                borderData: FlBorderData(
+                  show: false,
+                ),
+                sectionsSpace: 3,
+                centerSpaceRadius: 45,
+                sections: showingSections(widget.data),
               ),
             ),
-          ],
-        ),
+          ),
       ],
     );
   }
@@ -110,6 +96,7 @@ class PieChartKuState extends State<PieChartKu> {
       }
       total += int.parse(data[i]['amount']);
     }
+    heig = name.length;
     List col = [
       Colors.greenAccent,
       Colors.blueAccent,

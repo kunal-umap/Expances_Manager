@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:month_year_picker/month_year_picker.dart';
 import 'package:intl/intl.dart';
+
 class DetailGraph extends StatefulWidget {
   const DetailGraph({super.key});
-
   @override
   State<DetailGraph> createState() => _DetailGraphState();
 }
@@ -33,14 +33,11 @@ class _DetailGraphState extends State<DetailGraph> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
-
                 children: [
-
                   TextButton(
                     child: const Icon(Icons.calendar_month),
                     onPressed: () => _onPressed(context: context),
                   ),
-
                   Text(
                       DateFormat().add_yM().format(_selected!),
                     style: const TextStyle(
@@ -48,13 +45,11 @@ class _DetailGraphState extends State<DetailGraph> {
                       fontWeight: FontWeight.normal
                     ),
                   ),
-
                 ],
               ),
             )
           ],
         ),
-
       ),
 
       body:  SingleChildScrollView(
@@ -73,10 +68,6 @@ class _DetailGraphState extends State<DetailGraph> {
               }
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-        },
       ),
     );
   }

@@ -25,18 +25,15 @@ class DataName extends StatelessWidget {
       Colors.purpleAccent
     ];
 
-    return Scaffold(
-      body: Expanded(
-        child: ListView.builder(
-            itemCount: 1,
-            itemBuilder: (context, index) {
-              return const Indicator(
-                color: Colors.amber,
-                text: 'Second',
-                isSquare: true,
-              );
-            }),
-      ),
-    );
+    return ListView.builder(
+        shrinkWrap: true,
+        itemCount: name.length,
+        itemBuilder: (context, index) {
+          return Indicator(
+            color: col[index],
+            text: name[index],
+            isSquare: true,
+          );
+        });
   }
 }
