@@ -21,7 +21,7 @@ class _bottom_barState extends State<Home> {
     return Scaffold(
       appBar: homeTopBar(),
       drawer: topBarMenu(),
-      body: const Transection(),
+      body: const SingleChildScrollView(child: Transection()),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(16),

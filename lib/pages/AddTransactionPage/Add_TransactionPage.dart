@@ -18,11 +18,10 @@ class _add_TransactionState extends State<add_Transaction> {
     "EXPENSE",
     "INCOME",
   ];
-  // ignore: prefer_typing_uninitialized_variables
+
   var listItemSelected;
-  // ignore: prefer_typing_uninitialized_variables
+
   var modechoose;
-  // ignore: prefer_typing_uninitialized_variables
   var categorychooe;
   var modeItem = ["Online", "Cash"];
 
