@@ -1,5 +1,6 @@
 // ignore: file_names
 import 'package:expances_management/file_manager.dart';
+import 'package:expances_management/file_oprations.dart';
 import 'package:expances_management/pages/Home/home.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
@@ -232,8 +233,10 @@ class _add_TransactionState extends State<add_Transaction> {
                   ],
                 ),
               ),
+
             ],
           ),
+
           const SizedBox(
             height: 20,
           ),
@@ -242,8 +245,12 @@ class _add_TransactionState extends State<add_Transaction> {
             height: 50,
             child: ElevatedButton(
               onPressed: () {
-                final dat = FileManager().writeJsonFile();
-                print(dat);
+                FileOprations().writeJson("2022", {
+                  "data" : "mothet",
+                  "02" : 02,
+                  "Bill" : "20221"
+                });
+                FileOprations().readJson();
               },
               child: const Text(
                 "Add",
@@ -251,7 +258,8 @@ class _add_TransactionState extends State<add_Transaction> {
                     color: Color.fromARGB(255, 160, 25, 184), fontSize: 18),
               ),
             ),
-          )
+          ),
+
         ],
       ),
     );

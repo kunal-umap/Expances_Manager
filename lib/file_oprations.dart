@@ -18,7 +18,7 @@ class FileOprations {
     return File('$path/$kFileName');
   }
 
-  void _writeJson(String key, dynamic value) async {
+  void writeJson(String key, dynamic value) async {
     // Initialize the local _filePath
     final filePath = await _localFile;
 
@@ -37,7 +37,7 @@ class FileOprations {
     filePath.writeAsString(jsonString);
   }
 
-  void _readJson() async {
+  void readJson() async {
     // Initialize _filePath
     File filePath = await _localFile;
 
