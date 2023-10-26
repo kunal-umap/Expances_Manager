@@ -30,9 +30,9 @@ class FileManager {
 
   Future<Map<String, dynamic>> readJsonFile() async {
     File file = await _jsonFile;
-
     if (await file.exists()) {
       try {
+        print("object");
         final fileContent = await file.readAsString();
         return json.decode(fileContent);
       } catch (e) {
@@ -49,6 +49,7 @@ class FileManager {
 
     File file = await _jsonFile;
     await file.writeAsString(json.encode(user));
+    print(user);
     return user;
   }
 

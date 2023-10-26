@@ -18,7 +18,7 @@ class FileOprations {
     return File('$path/$kFileName');
   }
 
-  void writeJson(String key, dynamic value) async {
+  Future<String> writeJson(String key, dynamic value) async {
     // Initialize the local _filePath
     final filePath = await _localFile;
 
@@ -35,6 +35,7 @@ class FileOprations {
 
     //4. Write _jsonString to the _filePath
     filePath.writeAsString(jsonString);
+    return jsonString;
   }
 
   void readJson() async {
