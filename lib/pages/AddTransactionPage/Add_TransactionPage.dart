@@ -268,13 +268,19 @@ class _add_TransactionState extends State<add_Transaction> {
             height: 50,
             width: double.maxFinite,
             child: ElevatedButton(
-              onPressed: () {
-                  print("Write");
-                  print(FileOprations().writeJson("2022", {
-                  "data" : "mothet",
-                  "02" : 02,
-                  "Bill" : "20221"
-                  }));
+              onPressed: () async {
+                var data_new = {
+                  "description": "Samosa",
+                  "mode": "Online",
+                  "category": "Eat",
+                  "date": "24-09-2023",
+                  "amount": "50",
+                  "type": "Expenses"
+                };
+                var data = await FileOprations().readJson();
+                print(data);
+                  await FileOprations().writeJsonByData();
+                  print( await FileOprations().readJson());
               },
               child: const Text(
                 "Add",
@@ -285,24 +291,7 @@ class _add_TransactionState extends State<add_Transaction> {
               ),
             ),
           ),
-          SizedBox(
-            height: 50,
-            width: double.maxFinite,
-            child: ElevatedButton(
-              onPressed: () {
-                  print("Read");
 
-                  FileOprations().readJson();
-              },
-              child: const Text(
-                "Add",
-                style: TextStyle(
-                    color: Color.fromARGB(255, 160, 25, 184),
-                    fontSize: 18
-                ),
-              ),
-            ),
-          )
         ],
       ),
     );
