@@ -35,23 +35,23 @@ class FileOprations {
     //4. Write _jsonString to the _filePath
     filePath.writeAsString(jsonString);
   }
-  Future<void> writeJsonByData() async {
-    final year = "2024";
-    final month = "11";
-  final incD = {
-    "description": "ghar1",
-    "mode": "Online",
-    "category": "Eat",
-    "date": "24-09-2023",
-    "amount": "50",
-    "type": "Expenses"
-  };
+  Future<void> writeJsonByData(year,month,incD) async {
+  //   final year = "2024";
+  //   final month = "11";
+  // final incD = {
+  //   "description": "Pahile",
+  //   "mode": "Online",
+  //   "category": "Eat",
+  //   "date": "24-09-2023",
+  //   "amount": "50",
+  //   "type": "Expenses"
+  // };
     // Initialize the local _filePath
     final filePath = await _localFile;
 
     var data =await readJson();
     if(data != null && data[year] != null && data[year][month] != null){
-      data[year][month].add(incD);
+      data[year][month].insert(0,incD);
     }else if(data != null && data[year] != null){
       data[year][month] = [incD];
     }else {

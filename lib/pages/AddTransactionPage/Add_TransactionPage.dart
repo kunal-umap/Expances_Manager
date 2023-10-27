@@ -15,6 +15,9 @@ class add_Transaction extends StatefulWidget {
 
 // ignore: camel_case_types
 class _add_TransactionState extends State<add_Transaction> {
+  final DiscriptionController = TextEditingController();
+  final TextEditingController _date = TextEditingController();
+  final Paise = TextEditingController();
   late final _listItem = [
     "EXPENSE",
     "INCOME",
@@ -33,9 +36,13 @@ class _add_TransactionState extends State<add_Transaction> {
     ("EMI"),
     ("Gadget")
   ];
-  final TextEditingController _date = TextEditingController();
 
   @override
+  void dispose() {
+    DiscriptionController.dispose();
+    Paise.dispose();
+    super.dispose();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -123,12 +130,12 @@ class _add_TransactionState extends State<add_Transaction> {
                 ],
               )),
           const SizedBox(height: 10),
-          const Padding(
-              padding: EdgeInsets.fromLTRB(20, 12, 20, 12),
+          Padding(
+              padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Expanded(
+                  const Expanded(
                     flex: 3,
                     child: Text(
                       "Discription",
@@ -140,7 +147,9 @@ class _add_TransactionState extends State<add_Transaction> {
                     flex: 4,
                     child: SizedBox(
                       height: 18,
-                        child: TextField()
+                        child: TextField(
+                          controller: DiscriptionController,
+                        )
                     ),
                   ),
                 ],
@@ -231,7 +240,7 @@ class _add_TransactionState extends State<add_Transaction> {
                     ),
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
                     child: Column(
@@ -239,13 +248,14 @@ class _add_TransactionState extends State<add_Transaction> {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(top: 28),
+                          padding: const EdgeInsets.only(top: 28),
                           child: SizedBox(
                               height: 35,
                               child: TextField(
+                                controller: Paise,
                                 keyboardType: TextInputType.number,
-                                style: TextStyle(fontSize: 20),
-                                decoration: InputDecoration(
+                                style: const TextStyle(fontSize: 20),
+                                decoration: const InputDecoration(
                                   prefixIcon: Padding(
                                     padding: EdgeInsets.only(right: 12),
                                     child: Icon(
@@ -263,23 +273,22 @@ class _add_TransactionState extends State<add_Transaction> {
               ],
             ),
           ),
-          Expanded(child: SizedBox()),
+          const Expanded(child: SizedBox()),
           SizedBox(
             height: 50,
             width: double.maxFinite,
             child: ElevatedButton(
               onPressed: () async {
-                var data_new = {
-                  "description": "Samosa",
-                  "mode": "Online",
-                  "category": "Eat",
-                  "date": "24-09-2023",
-                  "amount": "50",
-                  "type": "Expenses"
+                var dataNew = {
+                  "description": DiscriptionController.text,
+                  "mode": modechoose,
+                  "category": categorychooe,
+                  "date": _date.text,
+                  "amount": Paise.text,
+                  "type": listItemSelected
                 };
-                var data = await FileOprations().readJson();
-                print(data);
-                  await FileOprations().writeJsonByData();
+                DateTime tempDate = new DateFormat("yyyy-MM-dd").parse(_date.text);
+                  await FileOprations().writeJsonByData('${tempDate.year}','${tempDate.month}',dataNew);
                   print( await FileOprations().readJson());
               },
               child: const Text(
