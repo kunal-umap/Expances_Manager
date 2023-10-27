@@ -73,10 +73,10 @@ class _Transaction_InfoState extends State<Expanse> {
                       }
                       if (data[widget.Selectedyear][widget.Selectedmonth][index]
                               ["type"] ==
-                          "Expenses") {
+                          "EXPENSE") {
                         return Main_page(
                           label: data[widget.Selectedyear][widget.Selectedmonth]
-                              [index]["description"],
+                              [index]["category"],
                           time: data[widget.Selectedyear][widget.Selectedmonth]
                               [index]["date"],
                           icon: icon,
@@ -85,7 +85,7 @@ class _Transaction_InfoState extends State<Expanse> {
                               [index]["amount"],
                           color1: data[widget.Selectedyear]
                                       [widget.Selectedmonth][index]["type"] ==
-                                  "Expenses"
+                                  "EXPENSE"
                               ? const Color.fromARGB(255, 255, 17, 0)
                               : Colors.green,
                         );

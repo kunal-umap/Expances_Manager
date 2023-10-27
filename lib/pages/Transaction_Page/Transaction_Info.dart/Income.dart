@@ -1,5 +1,5 @@
 import 'package:expances_management/pages/Home/Home_Wedgets/Transection/Main_page.dart';
-import 'package:expances_management/pages/Transaction_Page/MoreDetail/detailGraph.dart';
+import 'package:expances_management/pages/Transaction_Page/Transaction_Info.dart/all.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -74,10 +74,10 @@ class _Transaction_InfoState extends State<Income> {
                       }
                       if (data[widget.Selectedyear][widget.Selectedmonth][index]
                               ["type"] ==
-                          "Income") {
+                          "INCOME") {
                         return Main_page(
                           label: data[widget.Selectedyear][widget.Selectedmonth]
-                              [index]["description"],
+                              [index]["category"],
                           time: data[widget.Selectedyear][widget.Selectedmonth]
                               [index]["date"],
                           icon: icon,
@@ -86,7 +86,7 @@ class _Transaction_InfoState extends State<Income> {
                               [index]["amount"],
                           color1: data[widget.Selectedyear]
                                       [widget.Selectedmonth][index]["type"] ==
-                                  "Expenses"
+                                  "EXPENSE"
                               ? const Color.fromARGB(255, 255, 1, 1)
                               : Colors.green,
                         );
