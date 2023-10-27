@@ -30,7 +30,7 @@ class FileOprations {
 
     //3. Convert _json ->_jsonString
     jsonString = jsonEncode(_json);
-    print('3.(_writeJson) _jsonString: $jsonString\n - \n');
+    // print('3.(_writeJson) _jsonString: $jsonString\n - \n');
 
     //4. Write _jsonString to the _filePath
     filePath.writeAsString(jsonString);
@@ -71,7 +71,7 @@ class FileOprations {
 
     //3. Convert _json ->_jsonString
     jsonString = jsonEncode(_json);
-    print('3.(_writeJson) _jsonString: $jsonString\n - \n');
+    // print('3.(_writeJson) _jsonString: $jsonString\n - \n');
 
     //4. Write _jsonString to the _filePath
     filePath.writeAsString(jsonString);
@@ -89,7 +89,7 @@ class FileOprations {
       try {
         //1. Read _jsonString<String> from the _file.
         jsonString = await filePath.readAsString();
-        print('1.(_readJson) _jsonString: $jsonString');
+        // print('1.(_readJson) _jsonString: $jsonString');
 
         //2. Update initialized _json by converting _jsonString<String>->_json<Map>
         _json = jsonDecode(jsonString);
@@ -97,7 +97,7 @@ class FileOprations {
         return _json;
       } catch (e) {
         // Print exception errors
-        print('Tried reading _file error: $e');
+        // print('Tried reading _file error: $e');
         // If encountering an error, return null
         return {'e':e};
       }
@@ -105,5 +105,23 @@ class FileOprations {
     return {"data": null};
   }
 
+  Future<int> getVal(year,month) async {
+    final data = await readJson();
+    var arr ;
+    if(data != null && data[year.toString()] != null && data[year.toString()][month.toString()] != null){
+      arr = data[year.toString()][month.toString()];
+      print("In");
+    }
+    print('Check two :$arr');
+    var inr = 0;
+    for(int i = 0;i< arr.length; i++){
+      if(arr[i]["type"] == "Expenses"){
+        inr += int.parse(arr[i]["amount"]);
+      }
+    }
+    print(inr);
+    return inr;
+    // return 10;
+  }
 
 }

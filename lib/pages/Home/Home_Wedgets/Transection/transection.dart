@@ -28,7 +28,7 @@ class _TransectionState extends State<Transection> {
     return SafeArea(
       child: Column(
         children: [
-          const Graph(),
+          Graph(),
           const Padding(
             padding: EdgeInsets.fromLTRB(20, 15, 0, 10),
             child: Align(
