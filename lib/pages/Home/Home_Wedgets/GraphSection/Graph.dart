@@ -1,10 +1,18 @@
 import 'package:expances_management/Pages/Home/Home_Wedgets/GraphSection/Graph_Chart.dart';
 import 'package:expances_management/Pages/Transaction_Page/MoreDetail/detailGraph.dart';
+import 'package:expances_management/file_oprations.dart';
 import 'package:flutter/material.dart';
 
 class Graph extends StatelessWidget {
-  const Graph({super.key});
-  final inr = 265;
+  Graph({super.key});
+  var year = DateTime.now().year;
+  var mon = DateTime.now().month;
+  final month = [
+    "January", "February", "March", "April",
+    "May", "June", "July", "August", "September",
+    "October", "November", "December"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return  SafeArea(
@@ -15,9 +23,9 @@ class Graph extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Column(
+                  Column(
                     children: [
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.fromLTRB(12, 2, 10, 2),
                         child: Text(
                           "Expenses",
@@ -28,10 +36,10 @@ class Graph extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.fromLTRB(7, 0, 0, 0),
+                        padding: const EdgeInsets.fromLTRB(7, 0, 0, 0),
                         child: Text(
-                          "September-2023",
-                          style: TextStyle(
+                          '${month[mon -1]}-$year',
+                          style: const TextStyle(
                               fontSize: 12,
                               color: Color.fromRGBO(233, 225, 225, .8)
                           ),
@@ -41,13 +49,38 @@ class Graph extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(2, 2, 12, 2),
-                    child: Text(
-                      '₹ $inr',
-                      style: const TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.w600 ,
-                          color: Color.fromARGB(255, 160, 25, 184)
-                      ),
+                    child:  FutureBuilder(
+                      future: FileOprations().getVal(year, mon),
+                      builder: (BuildContext context, AsyncSnapshot snapshot) {
+                        if (snapshot.data == null) {
+                          return const Text(
+                              'Err',
+                              style: TextStyle(
+                                fontSize: 32,
+                                fontWeight: FontWeight.w600 ,
+                                color: Color.fromARGB(255, 160, 25, 184)
+                              ),
+                          );
+                        } else {
+                          final data = snapshot.data;
+                          return Text(
+                            '₹ $data',
+                            style: const TextStyle(
+                                fontSize: 32,
+                                fontWeight: FontWeight.w600 ,
+                                color: Color.fromARGB(255, 160, 25, 184)
+                            ),
+                          );
+                        }
+                      }
+                      // child: Text(
+                      //   '₹ ',
+                      //   style: const TextStyle(
+                      //       fontSize: 32,
+                      //       fontWeight: FontWeight.w600 ,
+                      //       color: Color.fromARGB(255, 160, 25, 184)
+                      //   ),
+                      // ),
                     ),
                   )
                 ],
