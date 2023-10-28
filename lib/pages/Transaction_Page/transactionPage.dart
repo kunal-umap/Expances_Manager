@@ -15,7 +15,7 @@ class TransactionPage extends StatefulWidget {
 
 class _TransactionPageState extends State<TransactionPage>
     with TickerProviderStateMixin {
-  String showYear = 'SY';
+  String showYear = ' -- ';
   int selectedYear = DateTime.now().year;
   Text selectedMonth = Text(
     "${DateTime.now().month}",
@@ -23,7 +23,7 @@ class _TransactionPageState extends State<TransactionPage>
   );
 
   Text showMonth = const Text(
-    'Select Month',
+    ' --  ',
     style: TextStyle(fontSize: 16),
   );
   final list = [
@@ -155,32 +155,24 @@ class _TransactionPageState extends State<TransactionPage>
       child: Scaffold(
         appBar: AppBar(
           title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.values[2],
             children: [
               Row(
                 children: [
                   IconButton(
                       onPressed: () {
+                        selectMonth(context);
                         selectYear(context);
                       },
                       icon: const Icon(Icons.calendar_month)),
+                  showMonth,
+                  const Text(' / '),
                   Text(
                     showYear,
                     style: const TextStyle(fontSize: 16),
                   ),
                 ],
               ),
-              Row(
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        selectMonth(context);
-                      },
-                      icon: const Icon(Icons.calendar_month)),
-                  showMonth,
-                ],
-              ),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
             ],
           ),
           bottom: const TabBar(
