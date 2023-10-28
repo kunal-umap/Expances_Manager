@@ -15,17 +15,22 @@ class add_Transaction extends StatefulWidget {
 
 // ignore: camel_case_types
 class _add_TransactionState extends State<add_Transaction> {
+  // ignore: non_constant_identifier_names
   final DiscriptionController = TextEditingController();
   final TextEditingController _date = TextEditingController();
+  // ignore: non_constant_identifier_names
   final Paise = TextEditingController();
   late final _listItem = [
     "EXPENSE",
     "INCOME",
   ];
 
+  // ignore: prefer_typing_uninitialized_variables
   var listItemSelected;
 
+  // ignore: prefer_typing_uninitialized_variables
   var modechoose;
+  // ignore: prefer_typing_uninitialized_variables
   var categorychooe;
   var modeItem = ["Online", "Cash"];
 
@@ -43,6 +48,8 @@ class _add_TransactionState extends State<add_Transaction> {
     Paise.dispose();
     super.dispose();
   }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -81,7 +88,7 @@ class _add_TransactionState extends State<add_Transaction> {
                 Expanded(
                   // width: 150,
                   child: DropdownButton<String>(
-                      hint: const Text("Select type"),
+                      hint: const Text("Select Type"),
                       value: listItemSelected,
                       isExpanded: true,
                       items: _listItem.map((String dropDownStringItem) {
@@ -112,7 +119,10 @@ class _add_TransactionState extends State<add_Transaction> {
                   const SizedBox(width: 70),
                   Expanded(
                     child: DropdownButton<String>(
-                        hint: const Text("Select Mode"),
+                        hint: const Text(
+                          "Select Mode",
+                        ),
+                        style: TextStyle(fontSize: 18),
                         value: modechoose,
                         isExpanded: true,
                         items: modeItem.map((String dropDownStringItem) {
@@ -146,11 +156,10 @@ class _add_TransactionState extends State<add_Transaction> {
                   Expanded(
                     flex: 4,
                     child: SizedBox(
-                      height: 18,
+                        height: 18,
                         child: TextField(
                           controller: DiscriptionController,
-                        )
-                    ),
+                        )),
                   ),
                 ],
               )),
@@ -167,9 +176,11 @@ class _add_TransactionState extends State<add_Transaction> {
                   const SizedBox(width: 40),
                   Expanded(
                     child: DropdownButton<String>(
-                        dropdownColor: Colors.black,
                         isExpanded: true,
-                        hint: const Text("Select Category"),
+                        hint: const Text(
+                          "Select Category",
+                        ),
+                        style: const TextStyle(fontSize: 18),
                         value: categorychooe,
                         items: _categoryItem.map((dropDownStringItem) {
                           return DropdownMenuItem<String>(
@@ -184,8 +195,7 @@ class _add_TransactionState extends State<add_Transaction> {
                         }),
                   )
                 ],
-              )
-          ),
+              )),
           const SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
@@ -202,8 +212,8 @@ class _add_TransactionState extends State<add_Transaction> {
                         const Text(
                           "Date",
                           style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.white,
+                            fontSize: 16,
+                            color: Colors.white,
                           ),
                         ),
                         SizedBox(
@@ -229,13 +239,12 @@ class _add_TransactionState extends State<add_Transaction> {
                                     lastDate: DateTime(2030));
                                 if (datapicked != null) {
                                   setState(() {
-                                    _date.text =
-                                        DateFormat("yyyy-MM-dd").format(datapicked);
+                                    _date.text = DateFormat("yyyy-MM-dd")
+                                        .format(datapicked);
                                   });
                                 }
                               },
-                            )
-                        )
+                            ))
                       ],
                     ),
                   ),
@@ -263,8 +272,7 @@ class _add_TransactionState extends State<add_Transaction> {
                                     ),
                                   ),
                                 ),
-                              )
-                          ),
+                              )),
                         )
                       ],
                     ),
@@ -287,20 +295,19 @@ class _add_TransactionState extends State<add_Transaction> {
                   "amount": Paise.text,
                   "type": listItemSelected
                 };
-                DateTime tempDate = new DateFormat("yyyy-MM-dd").parse(_date.text);
-                  await FileOprations().writeJsonByData('${tempDate.year}','${tempDate.month}',dataNew);
-                  print( await FileOprations().readJson());
+                DateTime tempDate = DateFormat("yyyy-MM-dd").parse(_date.text);
+                await FileOprations().writeJsonByData(
+                    '${tempDate.year}', '${tempDate.month}', dataNew);
+                // ignore: avoid_print
+                print(await FileOprations().readJson());
               },
               child: const Text(
                 "Add",
                 style: TextStyle(
-                    color: Color.fromARGB(255, 160, 25, 184),
-                    fontSize: 18
-                ),
+                    color: Color.fromARGB(255, 160, 25, 184), fontSize: 18),
               ),
             ),
           ),
-
         ],
       ),
     );
