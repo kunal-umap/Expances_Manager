@@ -35,31 +35,30 @@ class FileOprations {
     //4. Write _jsonString to the _filePath
     filePath.writeAsString(jsonString);
   }
-  Future<void> writeJsonByData(year,month,incD) async {
-  //   final year = "2024";
-  //   final month = "11";
-  // final incD = {
-  //   "description": "Pahile",
-  //   "mode": "Online",
-  //   "category": "Eat",
-  //   "date": "24-09-2023",
-  //   "amount": "50",
-  //   "type": "Expenses"
-  // };
+
+  Future<void> writeJsonByData(year, month, incD) async {
+    //   final year = "2024";
+    //   final month = "11";
+    // final incD = {
+    //   "description": "Pahile",
+    //   "mode": "Online",
+    //   "category": "Eat",
+    //   "date": "24-09-2023",
+    //   "amount": "50",
+    //   "type": "Expenses"
+    // };
     // Initialize the local _filePath
     final filePath = await _localFile;
 
-    var data =await readJson();
-    if(data != null && data[year] != null && data[year][month] != null){
-      data[year][month].insert(0,incD);
-    }else if(data != null && data[year] != null){
+    var data = await readJson();
+    if (data != null && data[year] != null && data[year][month] != null) {
+      data[year][month].insert(0, incD);
+    } else if (data != null && data[year] != null) {
       data[year][month] = [incD];
-    }else {
+    } else {
       data.addAll({
         year: {
-          month: [
-            incD
-          ]
+          month: [incD]
         }
       });
     }
@@ -77,7 +76,7 @@ class FileOprations {
     filePath.writeAsString(jsonString);
   }
 
-  Future<Map<String,dynamic>> readJson() async {
+  Future<Map<String, dynamic>> readJson() async {
     // Initialize _filePath
     File filePath = await _localFile;
 
@@ -99,23 +98,25 @@ class FileOprations {
         // Print exception errors
         // print('Tried reading _file error: $e');
         // If encountering an error, return null
-        return {'e':e};
+        return {'e': e};
       }
     }
     return {"data": null};
   }
 
-  Future<int> getVal(year,month) async {
+  Future<int> getVal(year, month) async {
     final data = await readJson();
-    var arr ;
-    if(data != null && data[year.toString()] != null && data[year.toString()][month.toString()] != null){
+    var arr;
+    if (data != null &&
+        data[year.toString()] != null &&
+        data[year.toString()][month.toString()] != null) {
       arr = data[year.toString()][month.toString()];
       print("In");
     }
     print('Check two :$arr');
     var inr = 0;
-    for(int i = 0;i< arr.length; i++){
-      if(arr[i]["type"] == "EXPENSE"){
+    for (int i = 0; i < arr.length; i++) {
+      if (arr[i]["type"] == "EXPENSE") {
         inr += int.parse(arr[i]["amount"]);
       }
     }
@@ -123,5 +124,4 @@ class FileOprations {
     return inr;
     // return 10;
   }
-
 }

@@ -1,9 +1,9 @@
 import 'dart:convert';
-
 import 'package:expances_management/Pages/Transaction_Page/MoreDetail/MoreDetailWidget/PiChart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:month_year_picker/month_year_picker.dart';
+// ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
 
 class DetailGraph extends StatefulWidget {
@@ -11,6 +11,7 @@ class DetailGraph extends StatefulWidget {
   @override
   State<DetailGraph> createState() => _DetailGraphState();
 }
+
 int selectedYear = DateTime.now().year;
 int selectedMonth = DateTime.now().month;
 
@@ -21,10 +22,10 @@ Future<Map<String, dynamic>> readJson() async {
 }
 
 class _DetailGraphState extends State<DetailGraph> {
-  DateTime? _selected  = DateTime(selectedYear,selectedMonth);
+  DateTime? _selected = DateTime(selectedYear, selectedMonth);
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,11 +40,9 @@ class _DetailGraphState extends State<DetailGraph> {
                     onPressed: () => _onPressed(context: context),
                   ),
                   Text(
-                      DateFormat().add_yM().format(_selected!),
+                    DateFormat().add_yM().format(_selected!),
                     style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.normal
-                    ),
+                        fontSize: 18, fontWeight: FontWeight.normal),
                   ),
                 ],
               ),
@@ -51,22 +50,21 @@ class _DetailGraphState extends State<DetailGraph> {
           ],
         ),
       ),
-
-      body:  SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Center(
           child: FutureBuilder(
               future: readJson(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
-                if(snapshot.data == null){
+                if (snapshot.data == null) {
                   return Center(child: Text(snapshot.error.toString()));
                 } else {
                   final data = snapshot.data;
                   return PieChartKu(
-                      data: data[DateFormat().add_y().format(_selected!)][DateFormat().add_M().format(_selected!)],
+                    data: data[DateFormat().add_y().format(_selected!)]
+                        [DateFormat().add_M().format(_selected!)],
                   );
                 }
-              }
-          ),
+              }),
         ),
       ),
     );
@@ -81,7 +79,7 @@ class _DetailGraphState extends State<DetailGraph> {
       context: context,
       initialDate: _selected ?? DateTime.now(),
       firstDate: DateTime(2019),
-      lastDate: DateTime(selectedYear,selectedMonth),
+      lastDate: DateTime(selectedYear, selectedMonth),
       locale: localeObj,
     );
     if (selected != null) {
@@ -91,4 +89,3 @@ class _DetailGraphState extends State<DetailGraph> {
     }
   }
 }
-
