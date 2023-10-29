@@ -73,14 +73,6 @@ class Graph extends StatelessWidget {
                           );
                         }
                       }
-                      // child: Text(
-                      //   '₹ ',
-                      //   style: const TextStyle(
-                      //       fontSize: 32,
-                      //       fontWeight: FontWeight.w600 ,
-                      //       color: Color.fromARGB(255, 160, 25, 184)
-                      //   ),
-                      // ),
                     ),
                   )
                 ],

@@ -115,7 +115,7 @@ class FileOprations {
     print('Check two :$arr');
     var inr = 0;
     for(int i = 0;i< arr.length; i++){
-      if(arr[i]["type"] == "Expenses"){
+      if(arr[i]["type"] == "EXPENSE"){
         inr += int.parse(arr[i]["amount"]);
       }
     }
