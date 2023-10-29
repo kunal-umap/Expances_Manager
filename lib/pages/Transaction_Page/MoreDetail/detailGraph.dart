@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:expances_management/Pages/Transaction_Page/MoreDetail/MoreDetailWidget/PiChart.dart';
+import 'package:expances_management/file_oprations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:month_year_picker/month_year_picker.dart';
@@ -16,8 +17,7 @@ int selectedYear = DateTime.now().year;
 int selectedMonth = DateTime.now().month;
 
 Future<Map<String, dynamic>> readJson() async {
-  final response = await rootBundle.loadString('assects/data.json');
-  final data = (jsonDecode(response));
+  final data = FileOprations().readJson();
   return data;
 }
 
