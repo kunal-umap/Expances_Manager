@@ -54,7 +54,7 @@ class Graph extends StatelessWidget {
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
                         if (snapshot.data == null) {
                           return const Text(
-                              'Err',
+                              '₹ 0',
                               style: TextStyle(
                                 fontSize: 32,
                                 fontWeight: FontWeight.w600 ,

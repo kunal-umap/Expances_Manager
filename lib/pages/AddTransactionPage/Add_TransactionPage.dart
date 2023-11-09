@@ -4,6 +4,7 @@ import 'package:expances_management/pages/Home/home.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 // ignore: camel_case_types
 class add_Transaction extends StatefulWidget {
@@ -283,23 +284,48 @@ class _add_TransactionState extends State<add_Transaction> {
               width: 100,
               child: ElevatedButton(
                 onPressed: () async {
-                  var dataNew = {
-                    "description": discriptionController.text,
-                    "mode": modechoose,
-                    "category": categorychooe,
-                    "date": _date.text,
-                    "amount": paise.text,
-                    "type": listItemSelected
-                  };
+                  if(discriptionController.text == ''){
+                  //   popup
+                  //   _onBasicAllertPressed(context);
+                    _onCustomAnimationAlertPressed(context);
+                  }else
+                  if(paise.text == '0' || paise.text == ''){
+                  //   popup
+                  //   _onBasicAllertPressed(context);
+                    _onCustomAnimationAlertPressed(context);
 
-                  DateTime tempDate =
+                  }else
+                  if(modechoose == null &&  listItemSelected == null ){
+                  //   popup
+                    _onCustomAnimationAlertPressed(context);
+                  //   _onBasicAllertPressed(context);
+
+                  }else
+                  if(discriptionController.text != '' && modechoose != null && paise.text != null && paise.text != '0'&& listItemSelected != null && paise.text != '') {
+                    DateTime tempDate;
+                    if(_date.text != ''){
+                      tempDate =
                       new DateFormat("yyyy-MM-dd").parse(_date.text);
-                  await FileOprations().writeJsonByData(
-                      '${tempDate.year}', '${tempDate.month}', dataNew);
-                  print(await FileOprations().readJson());
-                  paise.text = "";
-                  _date.text = "";
-                  discriptionController.text = "";
+                    }else {
+                      tempDate = DateTime.now();
+                    }
+                    var dataNew = {
+                      "description": discriptionController.text,
+                      "mode": modechoose,
+                      "category": categorychooe,
+                      "date": _date.text,
+                      "amount": paise.text,
+                      "type": listItemSelected
+                    };
+                    await FileOprations().writeJsonByData(
+                        '${tempDate.year}', '${tempDate.month}', dataNew);
+                    // popup
+                    _onBasicAllertPressed(context);
+
+                    paise.text = "";
+                    _date.text = "";
+                    discriptionController.text = "";
+                  }
                 },
                 child: const Text(
                   "Add",
@@ -313,4 +339,35 @@ class _add_TransactionState extends State<add_Transaction> {
       ),
     );
   }
+
+  _onBasicAllertPressed(context) {
+    Alert(
+      context: context,
+      title: "Saved ✅",
+      desc: "Transaction Added Sucessfully ✨"
+    ).show();
+  }
+
+  _onCustomAnimationAlertPressed(context) {
+    Alert(
+      context: context,
+      title: "All field necessary ⚠️",
+      desc: "Please fill the all values below",
+      alertAnimation: fadeAlertAnimation,
+    ).show();
+  }
+  Widget fadeAlertAnimation(
+      BuildContext context,
+      Animation<double> animation,
+      Animation<double> secondaryAnimation,
+      Widget child,
+      ) {
+    return Align(
+      child: FadeTransition(
+        opacity: animation,
+        child: child,
+      ),
+    );
+  }
+
 }
